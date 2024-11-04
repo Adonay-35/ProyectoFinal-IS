@@ -32,5 +32,53 @@ namespace SistemasContables.DataBase
         protected const string NIVEL = "nivel";
         protected const string NOMBRE_CUENTA = "nombreCuenta";
         protected const string TIPO_SALDO = "tipoSaldo";
+
+        protected const string TABLE_USUARIO = "usuario";
+        protected const string ID_USUARIO = "idUsuario";
+        protected const string NOMBRE_USUARIO = "nombreUsuario";
+        protected const string CLAVE_USUARIO = "claveUsuario";
+        protected const string ID_EMPLEADO = "idEmpleado";
+        protected const string ID_ROL = "idRol";
+        protected const string ID_ESTADO = "idEstado";
+
+        protected const string TABLE_EMPLEADO = "empleado";
+        //protected const string ID_EMPLEADO = "idEmpleado";
+        protected const string NOMBRES_EMPLEADO = "nombresEmpleado";
+        protected const string APELLIDOS_EMPLEADO = "apellidosEmpleado";
+        protected const string FECHA_NACIMIENTO = "fechaNacimiento";
+        protected const string DUI_EMPLEADO = "duiEmpleado";
+        protected const string ISSS_EMPLEADO = "isssEmpleado";
+        protected const string TELEFONO = "telefono";
+        protected const string CORREO = "correo";
+        protected const string ID_DIRECCION = "idDireccion";
+
+        protected const string TABLE_ROL = "rol";
+        //protected const string ID_ROL = "idRol";
+        protected const string NOMBRE_ROL = "nombreRol";
+
+        protected const string TABLE_ESTADO = "estado";
+        //protected const string ID_ESTADO = "idEstado";
+        protected const string DESCRIPCION_ESTADO = "descripcionEstado";
+
+        protected const string TABLE_DEPARTAMENTO = "departamento";
+        protected const string ID_DEPARTAMENTO = "idDepartamento";
+        protected const string NOMBRE_DEPARTAMENTO = "nombreDepartamento";
+
+        protected const string TABLE_MUNICIPIO = "municipio";
+        protected const string ID_MUNICIPIO = "idMunicipio";
+        protected const string NOMBRE_MUNICIPIO = "nombreMunicipio";
+        //protected const string ID_DEPARTAMENTO = "idDepartamento";
+
+        protected const string TABLE_DISTRITO = "distrito";
+        protected const string ID_DISTRITO = "idDistrito";
+        protected const string NOMBRE_DISTRITO = "nombreDistrito";
+        //protected const string ID_MUNICIPIO = "idMunicipio";
+
+        protected const string TABLE_DIRECCION = "direccion";
+        //protected const string ID_DIRECCION = "idDireccion";
+        protected const string LINEA1 = "linea1";
+        protected const string LINEA2 = "linea2";
+        protected const string CODIGO_POSTAL = "codigoPostal";
+        //protected const string ID_DISTRITO = "idDistrito";
     }
 }

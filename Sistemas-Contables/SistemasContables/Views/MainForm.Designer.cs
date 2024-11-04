@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation2 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -84,18 +84,16 @@
             this.AnimacionPanelNavegacion.SetDecoration(this.panelNavegacion, Guna.UI.Animation.DecorationType.None);
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 0);
-            this.panelNavegacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelNavegacion.Name = "panelNavegacion";
-            this.panelNavegacion.Size = new System.Drawing.Size(336, 935);
+            this.panelNavegacion.Size = new System.Drawing.Size(252, 760);
             this.panelNavegacion.TabIndex = 2;
             // 
             // panel2
             // 
             this.AnimacionPanelNavegacion.SetDecoration(this.panel2, Guna.UI.Animation.DecorationType.None);
-            this.panel2.Location = new System.Drawing.Point(336, 879);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(252, 714);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 57);
+            this.panel2.Size = new System.Drawing.Size(200, 46);
             this.panel2.TabIndex = 1;
             // 
             // btnBalanceGeneral
@@ -111,12 +109,11 @@
             this.btnBalanceGeneral.IconColor = System.Drawing.Color.White;
             this.btnBalanceGeneral.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBalanceGeneral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBalanceGeneral.Location = new System.Drawing.Point(0, 541);
-            this.btnBalanceGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBalanceGeneral.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnBalanceGeneral.Location = new System.Drawing.Point(0, 439);
+            this.btnBalanceGeneral.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnBalanceGeneral.Name = "btnBalanceGeneral";
-            this.btnBalanceGeneral.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnBalanceGeneral.Size = new System.Drawing.Size(336, 74);
+            this.btnBalanceGeneral.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBalanceGeneral.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceGeneral.TabIndex = 21;
             this.btnBalanceGeneral.Text = "Balance general";
             this.btnBalanceGeneral.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -137,12 +134,11 @@
             this.btnEstadoDeResultados.IconColor = System.Drawing.Color.White;
             this.btnEstadoDeResultados.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEstadoDeResultados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadoDeResultados.Location = new System.Drawing.Point(0, 467);
-            this.btnEstadoDeResultados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEstadoDeResultados.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnEstadoDeResultados.Location = new System.Drawing.Point(0, 379);
+            this.btnEstadoDeResultados.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnEstadoDeResultados.Name = "btnEstadoDeResultados";
-            this.btnEstadoDeResultados.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnEstadoDeResultados.Size = new System.Drawing.Size(336, 74);
+            this.btnEstadoDeResultados.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnEstadoDeResultados.Size = new System.Drawing.Size(252, 60);
             this.btnEstadoDeResultados.TabIndex = 20;
             this.btnEstadoDeResultados.Text = "Estado de resultados";
             this.btnEstadoDeResultados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -163,12 +159,11 @@
             this.btnBalanceDeComprobacion.IconColor = System.Drawing.Color.White;
             this.btnBalanceDeComprobacion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBalanceDeComprobacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBalanceDeComprobacion.Location = new System.Drawing.Point(0, 393);
-            this.btnBalanceDeComprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBalanceDeComprobacion.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnBalanceDeComprobacion.Location = new System.Drawing.Point(0, 319);
+            this.btnBalanceDeComprobacion.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnBalanceDeComprobacion.Name = "btnBalanceDeComprobacion";
-            this.btnBalanceDeComprobacion.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(336, 74);
+            this.btnBalanceDeComprobacion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBalanceDeComprobacion.Size = new System.Drawing.Size(252, 60);
             this.btnBalanceDeComprobacion.TabIndex = 19;
             this.btnBalanceDeComprobacion.Text = "Balance de comprobacion";
             this.btnBalanceDeComprobacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,12 +184,11 @@
             this.btnLibroMayor.IconColor = System.Drawing.Color.White;
             this.btnLibroMayor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLibroMayor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibroMayor.Location = new System.Drawing.Point(0, 319);
-            this.btnLibroMayor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLibroMayor.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnLibroMayor.Location = new System.Drawing.Point(0, 259);
+            this.btnLibroMayor.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnLibroMayor.Name = "btnLibroMayor";
-            this.btnLibroMayor.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnLibroMayor.Size = new System.Drawing.Size(336, 74);
+            this.btnLibroMayor.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnLibroMayor.Size = new System.Drawing.Size(252, 60);
             this.btnLibroMayor.TabIndex = 18;
             this.btnLibroMayor.Text = "Libro Mayor";
             this.btnLibroMayor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -215,12 +209,11 @@
             this.btnLibroDiario.IconColor = System.Drawing.Color.White;
             this.btnLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLibroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLibroDiario.Location = new System.Drawing.Point(0, 245);
-            this.btnLibroDiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLibroDiario.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnLibroDiario.Location = new System.Drawing.Point(0, 199);
+            this.btnLibroDiario.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnLibroDiario.Name = "btnLibroDiario";
-            this.btnLibroDiario.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnLibroDiario.Size = new System.Drawing.Size(336, 74);
+            this.btnLibroDiario.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnLibroDiario.Size = new System.Drawing.Size(252, 60);
             this.btnLibroDiario.TabIndex = 17;
             this.btnLibroDiario.Text = "Libro Diario";
             this.btnLibroDiario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,12 +234,11 @@
             this.btnInicio.IconColor = System.Drawing.Color.White;
             this.btnInicio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(0, 171);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnInicio.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnInicio.Location = new System.Drawing.Point(0, 139);
+            this.btnInicio.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnInicio.Size = new System.Drawing.Size(336, 74);
+            this.btnInicio.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnInicio.Size = new System.Drawing.Size(252, 60);
             this.btnInicio.TabIndex = 16;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -267,12 +259,11 @@
             this.btnMenu.IconColor = System.Drawing.Color.White;
             this.btnMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 97);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnMenu.MinimumSize = new System.Drawing.Size(333, 74);
+            this.btnMenu.Location = new System.Drawing.Point(0, 79);
+            this.btnMenu.MinimumSize = new System.Drawing.Size(250, 60);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.btnMenu.Size = new System.Drawing.Size(336, 74);
+            this.btnMenu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMenu.Size = new System.Drawing.Size(252, 60);
             this.btnMenu.TabIndex = 15;
             this.btnMenu.Text = "Menu";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -287,9 +278,8 @@
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(336, 97);
+            this.pbLogo.Size = new System.Drawing.Size(252, 79);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 8;
             this.pbLogo.TabStop = false;
@@ -303,10 +293,9 @@
             this.panelTop.Controls.Add(this.btnExit);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelTop, Guna.UI.Animation.DecorationType.None);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(336, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTop.Location = new System.Drawing.Point(252, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1268, 49);
+            this.panelTop.Size = new System.Drawing.Size(951, 40);
             this.panelTop.TabIndex = 5;
             // 
             // btnMinimizar
@@ -319,10 +308,10 @@
             this.btnMinimizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 35;
-            this.btnMinimizar.Location = new System.Drawing.Point(996, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(747, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(68, 49);
+            this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMinimizar.UseVisualStyleBackColor = true;
@@ -338,10 +327,10 @@
             this.btnRestoreWindow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestoreWindow.IconSize = 35;
-            this.btnRestoreWindow.Location = new System.Drawing.Point(1064, 0);
-            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRestoreWindow.Location = new System.Drawing.Point(798, 0);
+            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRestoreWindow.Name = "btnRestoreWindow";
-            this.btnRestoreWindow.Size = new System.Drawing.Size(68, 49);
+            this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
             this.btnRestoreWindow.TabIndex = 3;
             this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRestoreWindow.UseVisualStyleBackColor = true;
@@ -358,10 +347,10 @@
             this.btnMaximizar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 35;
-            this.btnMaximizar.Location = new System.Drawing.Point(1132, 0);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMaximizar.Location = new System.Drawing.Point(849, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(68, 49);
+            this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
             this.btnMaximizar.TabIndex = 2;
             this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMaximizar.UseVisualStyleBackColor = true;
@@ -379,10 +368,10 @@
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 35;
-            this.btnExit.Location = new System.Drawing.Point(1200, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Location = new System.Drawing.Point(900, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(68, 49);
+            this.btnExit.Size = new System.Drawing.Size(51, 40);
             this.btnExit.TabIndex = 1;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
@@ -398,9 +387,8 @@
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenedor, Guna.UI.Animation.DecorationType.None);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1604, 935);
+            this.panelContenedor.Size = new System.Drawing.Size(1203, 760);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelContenido
@@ -409,20 +397,19 @@
             this.panelContenido.Controls.Add(this.panel3);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, Guna.UI.Animation.DecorationType.None);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenido.Location = new System.Drawing.Point(336, 49);
-            this.panelContenido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelContenido.Location = new System.Drawing.Point(252, 40);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(1268, 829);
+            this.panelContenido.Size = new System.Drawing.Size(951, 674);
             this.panelContenido.TabIndex = 8;
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AnimacionPanelNavegacion.SetDecoration(this.panel3, Guna.UI.Animation.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(964, 830);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(723, 674);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(304, 57);
+            this.panel3.Size = new System.Drawing.Size(228, 46);
             this.panel3.TabIndex = 2;
             // 
             // panelBottom
@@ -430,10 +417,9 @@
             this.panelBottom.Controls.Add(this.panel1);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, Guna.UI.Animation.DecorationType.None);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(336, 878);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBottom.Location = new System.Drawing.Point(252, 714);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1268, 57);
+            this.panelBottom.Size = new System.Drawing.Size(951, 46);
             this.panelBottom.TabIndex = 7;
             // 
             // panel1
@@ -445,11 +431,10 @@
             this.panel1.Controls.Add(this.lblPagina);
             this.panel1.Controls.Add(this.btnPrevious);
             this.AnimacionPanelNavegacion.SetDecoration(this.panel1, Guna.UI.Animation.DecorationType.None);
-            this.panel1.Location = new System.Drawing.Point(474, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.MaximumSize = new System.Drawing.Size(419, 53);
+            this.panel1.Location = new System.Drawing.Point(356, 3);
+            this.panel1.MaximumSize = new System.Drawing.Size(314, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 53);
+            this.panel1.Size = new System.Drawing.Size(250, 43);
             this.panel1.TabIndex = 0;
             // 
             // btnNext
@@ -464,12 +449,11 @@
             this.btnNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNext.IconSize = 28;
-            this.btnNext.Location = new System.Drawing.Point(203, 0);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnNext.MaximumSize = new System.Drawing.Size(57, 53);
-            this.btnNext.MinimumSize = new System.Drawing.Size(57, 53);
+            this.btnNext.Location = new System.Drawing.Point(152, 0);
+            this.btnNext.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnNext.MinimumSize = new System.Drawing.Size(43, 43);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(57, 53);
+            this.btnNext.Size = new System.Drawing.Size(43, 43);
             this.btnNext.TabIndex = 1;
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -486,11 +470,10 @@
             this.btnAddLibroDiario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(189)))), ((int)(((byte)(50)))));
             this.btnAddLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAddLibroDiario.IconSize = 28;
-            this.btnAddLibroDiario.Location = new System.Drawing.Point(276, 0);
-            this.btnAddLibroDiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(57, 53);
+            this.btnAddLibroDiario.Location = new System.Drawing.Point(207, 0);
+            this.btnAddLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
             this.btnAddLibroDiario.Name = "btnAddLibroDiario";
-            this.btnAddLibroDiario.Size = new System.Drawing.Size(57, 53);
+            this.btnAddLibroDiario.Size = new System.Drawing.Size(43, 43);
             this.btnAddLibroDiario.TabIndex = 2;
             this.btnAddLibroDiario.UseVisualStyleBackColor = false;
             this.btnAddLibroDiario.Click += new System.EventHandler(this.btnAddLibroDiario_Click);
@@ -507,10 +490,9 @@
             this.btnDeleteLibroDiario.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnDeleteLibroDiario.IconSize = 28;
             this.btnDeleteLibroDiario.Location = new System.Drawing.Point(0, 0);
-            this.btnDeleteLibroDiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(57, 53);
+            this.btnDeleteLibroDiario.MaximumSize = new System.Drawing.Size(43, 43);
             this.btnDeleteLibroDiario.Name = "btnDeleteLibroDiario";
-            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(57, 53);
+            this.btnDeleteLibroDiario.Size = new System.Drawing.Size(43, 43);
             this.btnDeleteLibroDiario.TabIndex = 3;
             this.btnDeleteLibroDiario.UseVisualStyleBackColor = false;
             this.btnDeleteLibroDiario.Click += new System.EventHandler(this.btnDeleteLibroDiario_Click);
@@ -520,11 +502,10 @@
             this.lblPagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AnimacionPanelNavegacion.SetDecoration(this.lblPagina, Guna.UI.Animation.DecorationType.None);
             this.lblPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagina.Location = new System.Drawing.Point(147, -1);
-            this.lblPagina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPagina.MaximumSize = new System.Drawing.Size(60, 53);
+            this.lblPagina.Location = new System.Drawing.Point(110, -1);
+            this.lblPagina.MaximumSize = new System.Drawing.Size(45, 43);
             this.lblPagina.Name = "lblPagina";
-            this.lblPagina.Size = new System.Drawing.Size(53, 53);
+            this.lblPagina.Size = new System.Drawing.Size(40, 43);
             this.lblPagina.TabIndex = 1;
             this.lblPagina.Text = "Pag";
             this.lblPagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -541,12 +522,11 @@
             this.btnPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(230)))));
             this.btnPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrevious.IconSize = 28;
-            this.btnPrevious.Location = new System.Drawing.Point(81, 0);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnPrevious.MaximumSize = new System.Drawing.Size(57, 53);
-            this.btnPrevious.MinimumSize = new System.Drawing.Size(57, 53);
+            this.btnPrevious.Location = new System.Drawing.Point(61, 0);
+            this.btnPrevious.MaximumSize = new System.Drawing.Size(43, 43);
+            this.btnPrevious.MinimumSize = new System.Drawing.Size(43, 43);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(57, 53);
+            this.btnPrevious.Size = new System.Drawing.Size(43, 43);
             this.btnPrevious.TabIndex = 0;
             this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -563,22 +543,22 @@
             // 
             this.AnimacionPanelNavegacion.AnimationType = Guna.UI.Animation.AnimationType.HorizSlide;
             this.AnimacionPanelNavegacion.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation2;
             // 
             // gunaResize
             // 
@@ -586,16 +566,16 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1604, 935);
+            this.ClientSize = new System.Drawing.Size(1203, 760);
             this.Controls.Add(this.panelContenedor);
             this.AnimacionPanelNavegacion.SetDecoration(this, Guna.UI.Animation.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(1604, 935);
+            this.MinimumSize = new System.Drawing.Size(1203, 760);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistemas Contables";
             this.panelNavegacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

@@ -90,6 +90,76 @@ namespace SistemasContables.DataBase
                     sql += "ON DELETE CASCADE ON UPDATE CASCADE";
                     sql += ");";
 
+                    sql += "CREATE TABLE departamento(";
+                    sql += "idDepartamento INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombreDepartamento TEXT(100)";
+                    sql += ");";
+
+                    sql += "CREATE TABLE municipio(";
+                    sql += "idMunicipio INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombreMunicipio TEXT(100),";
+                    sql += "idDepartamento INTEGER,";
+                    sql += "FOREIGN KEY(idDepartamento) REFERENCES departamento(idDepartamento) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                    sql += ");";
+
+                    sql += "CREATE TABLE distrito(";
+                    sql += "idDistrito INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombreDistrito TEXT(100),";
+                    sql += "idMunicipio INTEGER,";
+                    sql += "FOREIGN KEY(idMunicipio) REFERENCES municipio(idMunicipio) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                    sql += ");";
+
+                    sql += "CREATE TABLE direccion(";
+                    sql += "idDireccion INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "linea1 TEXT(200),";
+                    sql += "linea2 TEXT(200),";
+                    sql += "codigoPostal TEXT(50),";
+                    sql += "idDistrito INTEGER,";
+                    sql += "FOREIGN KEY(idDistrito) REFERENCES distrito(idDistrito) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                    sql += ");";
+
+                    sql += "CREATE TABLE empleado(";
+                    sql += "idEmpleado INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombresEmpleado TEXT(100),";
+                    sql += "apellidosEmpleado TEXT(100),";
+                    sql += "fechaNacimiento DATE,";
+                    sql += "duiEmpleado TEXT(50),";
+                    sql += "isssEmpleado TEXT(50),";
+                    sql += "telefono TEXT(50),";
+                    sql += "correo TEXT(100),";
+                    sql += "idDireccion INTEGER,";
+                    sql += "FOREIGN KEY(idDireccion) REFERENCES direccion(idDireccion) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                    sql += ");";
+
+                    sql += "CREATE TABLE estado(";
+                    sql += "idEstado INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "descripcionEstado TEXT(100)";
+                    sql += ");";
+
+                    sql += "CREATE TABLE rol(";
+                    sql += "idRol INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombreRol TEXT(100)";
+                    sql += ");";
+
+                    sql += "CREATE TABLE usuario(";
+                    sql += "idUsuario INTEGER PRIMARY KEY AUTOINCREMENT,";
+                    sql += "nombreUsuario TEXT(100),";
+                    sql += "claveUsuario TEXT(100),";
+                    sql += "idEmpleado INTEGER,";
+                    sql += "idRol INTEGER,";
+                    sql += "idEstado INTEGER,";
+                    sql += "FOREIGN KEY(idEmpleado) REFERENCES empleado(idEmpleado) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE,";
+                    sql += "FOREIGN KEY(idRol) REFERENCES rol(idRol) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE,";
+                    sql += "FOREIGN KEY(idEstado) REFERENCES estado(idEstado) ";
+                    sql += "ON DELETE CASCADE ON UPDATE CASCADE";
+                    sql += ");";
+
                     sql += cuentasInsert();
 
                     command.CommandText = sql;

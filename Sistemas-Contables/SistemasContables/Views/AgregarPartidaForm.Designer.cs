@@ -29,23 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.licensing1 = new Guna.UI.WinForms.Licensing();
             this.gunaDragPanelTop = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.gunaDragTitulo = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse3 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse4 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
             this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
             this.btnMaximizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.gunaDragTitulo = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.btnAgregarPartida = new FontAwesome.Sharp.IconButton();
+            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.btnEditarPartida = new FontAwesome.Sharp.IconButton();
+            this.gunaElipse3 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
+            this.gunaElipse4 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
+            this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
             this.gunaGroupBox2 = new Guna.UI.WinForms.GunaGroupBox();
             this.rbDebito = new Guna.UI.WinForms.GunaRadioButton();
             this.rbCredito = new Guna.UI.WinForms.GunaRadioButton();
@@ -65,10 +69,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAgregarPartida = new FontAwesome.Sharp.IconButton();
-            this.btnEditarPartida = new FontAwesome.Sharp.IconButton();
-            this.btnNuevaCuenta = new FontAwesome.Sharp.IconButton();
-            this.btnEliminarCuenta = new FontAwesome.Sharp.IconButton();
             this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -101,34 +101,6 @@
             // 
             this.gunaDragPanelTop.TargetControl = this.panelTop;
             // 
-            // gunaDragTitulo
-            // 
-            this.gunaDragTitulo.TargetControl = this.lblTitulo;
-            // 
-            // gunaElipse1
-            // 
-            this.gunaElipse1.Radius = 10;
-            this.gunaElipse1.TargetControl = this.btnAgregarPartida;
-            // 
-            // gunaElipse2
-            // 
-            this.gunaElipse2.Radius = 10;
-            this.gunaElipse2.TargetControl = this.btnEditarPartida;
-            // 
-            // gunaElipse3
-            // 
-            this.gunaElipse3.Radius = 10;
-            this.gunaElipse3.TargetControl = this.btnNuevaCuenta;
-            // 
-            // gunaElipse4
-            // 
-            this.gunaElipse4.Radius = 10;
-            this.gunaElipse4.TargetControl = this.btnEliminarCuenta;
-            // 
-            // gunaResize
-            // 
-            this.gunaResize.TargetForm = this;
-            // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
@@ -160,7 +132,6 @@
             this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -168,7 +139,6 @@
             this.btnMinimizar.Location = new System.Drawing.Point(802, 0);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Rotation = 0D;
             this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -180,7 +150,6 @@
             this.btnRestoreWindow.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnRestoreWindow.FlatAppearance.BorderSize = 0;
             this.btnRestoreWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreWindow.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnRestoreWindow.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
             this.btnRestoreWindow.IconColor = System.Drawing.Color.White;
             this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -188,7 +157,6 @@
             this.btnRestoreWindow.Location = new System.Drawing.Point(853, 0);
             this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestoreWindow.Name = "btnRestoreWindow";
-            this.btnRestoreWindow.Rotation = 0D;
             this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
             this.btnRestoreWindow.TabIndex = 3;
             this.btnRestoreWindow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -201,7 +169,6 @@
             this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMaximizar.FlatAppearance.BorderSize = 0;
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnMaximizar.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.btnMaximizar.IconColor = System.Drawing.Color.White;
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -209,7 +176,6 @@
             this.btnMaximizar.Location = new System.Drawing.Point(904, 0);
             this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Rotation = 0D;
             this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
             this.btnMaximizar.TabIndex = 2;
             this.btnMaximizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -230,12 +196,139 @@
             this.btnExit.Location = new System.Drawing.Point(955, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Rotation = 0D;
             this.btnExit.Size = new System.Drawing.Size(51, 40);
             this.btnExit.TabIndex = 1;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // gunaDragTitulo
+            // 
+            this.gunaDragTitulo.TargetControl = this.lblTitulo;
+            // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.Radius = 10;
+            this.gunaElipse1.TargetControl = this.btnAgregarPartida;
+            // 
+            // btnAgregarPartida
+            // 
+            this.btnAgregarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnAgregarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarPartida.FlatAppearance.BorderSize = 0;
+            this.btnAgregarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarPartida.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnAgregarPartida.IconColor = System.Drawing.Color.White;
+            this.btnAgregarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarPartida.IconSize = 40;
+            this.btnAgregarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarPartida.Location = new System.Drawing.Point(614, 3);
+            this.btnAgregarPartida.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnAgregarPartida.Name = "btnAgregarPartida";
+            this.btnAgregarPartida.Size = new System.Drawing.Size(190, 50);
+            this.btnAgregarPartida.TabIndex = 16;
+            this.btnAgregarPartida.Text = "Agregar Partida";
+            this.btnAgregarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregarPartida.UseVisualStyleBackColor = false;
+            this.btnAgregarPartida.Click += new System.EventHandler(this.btnAgregarPartida_Click);
+            // 
+            // gunaElipse2
+            // 
+            this.gunaElipse2.Radius = 10;
+            this.gunaElipse2.TargetControl = this.btnEditarPartida;
+            // 
+            // btnEditarPartida
+            // 
+            this.btnEditarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.btnEditarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditarPartida.FlatAppearance.BorderSize = 0;
+            this.btnEditarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPartida.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnEditarPartida.IconColor = System.Drawing.Color.White;
+            this.btnEditarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditarPartida.IconSize = 40;
+            this.btnEditarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarPartida.Location = new System.Drawing.Point(418, 3);
+            this.btnEditarPartida.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnEditarPartida.Name = "btnEditarPartida";
+            this.btnEditarPartida.Size = new System.Drawing.Size(190, 50);
+            this.btnEditarPartida.TabIndex = 6;
+            this.btnEditarPartida.Text = "Editar Partida";
+            this.btnEditarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarPartida.UseVisualStyleBackColor = false;
+            this.btnEditarPartida.Click += new System.EventHandler(this.btnEditarPartida_Click);
+            // 
+            // gunaElipse3
+            // 
+            this.gunaElipse3.Radius = 10;
+            this.gunaElipse3.TargetControl = this.btnNuevaCuenta;
+            // 
+            // btnNuevaCuenta
+            // 
+            this.btnNuevaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevaCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnNuevaCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevaCuenta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCuenta.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaCuenta.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnNuevaCuenta.IconColor = System.Drawing.Color.White;
+            this.btnNuevaCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNuevaCuenta.IconSize = 40;
+            this.btnNuevaCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaCuenta.Location = new System.Drawing.Point(222, 3);
+            this.btnNuevaCuenta.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnNuevaCuenta.Name = "btnNuevaCuenta";
+            this.btnNuevaCuenta.Size = new System.Drawing.Size(190, 50);
+            this.btnNuevaCuenta.TabIndex = 15;
+            this.btnNuevaCuenta.Text = "Nueva cuenta";
+            this.btnNuevaCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevaCuenta.UseVisualStyleBackColor = false;
+            this.btnNuevaCuenta.Click += new System.EventHandler(this.btnNuevaCuenta_Click);
+            // 
+            // gunaElipse4
+            // 
+            this.gunaElipse4.Radius = 10;
+            this.gunaElipse4.TargetControl = this.btnEliminarCuenta;
+            // 
+            // btnEliminarCuenta
+            // 
+            this.btnEliminarCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
+            this.btnEliminarCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarCuenta.FlatAppearance.BorderSize = 0;
+            this.btnEliminarCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCuenta.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCuenta.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnEliminarCuenta.IconColor = System.Drawing.Color.White;
+            this.btnEliminarCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminarCuenta.IconSize = 40;
+            this.btnEliminarCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarCuenta.Location = new System.Drawing.Point(18, 3);
+            this.btnEliminarCuenta.MinimumSize = new System.Drawing.Size(190, 50);
+            this.btnEliminarCuenta.Name = "btnEliminarCuenta";
+            this.btnEliminarCuenta.Size = new System.Drawing.Size(198, 50);
+            this.btnEliminarCuenta.TabIndex = 13;
+            this.btnEliminarCuenta.Text = "Eliminar Cuenta";
+            this.btnEliminarCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarCuenta.UseVisualStyleBackColor = false;
+            this.btnEliminarCuenta.Click += new System.EventHandler(this.btnEliminarCuenta_Click);
+            // 
+            // gunaResize
+            // 
+            this.gunaResize.TargetForm = this;
             // 
             // gunaGroupBox2
             // 
@@ -550,114 +643,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(807, 55);
             this.flowLayoutPanel1.TabIndex = 119;
             // 
-            // btnAgregarPartida
-            // 
-            this.btnAgregarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnAgregarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarPartida.FlatAppearance.BorderSize = 0;
-            this.btnAgregarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarPartida.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAgregarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPartida.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarPartida.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnAgregarPartida.IconColor = System.Drawing.Color.White;
-            this.btnAgregarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarPartida.IconSize = 40;
-            this.btnAgregarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPartida.Location = new System.Drawing.Point(614, 3);
-            this.btnAgregarPartida.MinimumSize = new System.Drawing.Size(190, 50);
-            this.btnAgregarPartida.Name = "btnAgregarPartida";
-            this.btnAgregarPartida.Rotation = 0D;
-            this.btnAgregarPartida.Size = new System.Drawing.Size(190, 50);
-            this.btnAgregarPartida.TabIndex = 16;
-            this.btnAgregarPartida.Text = "Agregar Partida";
-            this.btnAgregarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregarPartida.UseVisualStyleBackColor = false;
-            this.btnAgregarPartida.Click += new System.EventHandler(this.btnAgregarPartida_Click);
-            // 
-            // btnEditarPartida
-            // 
-            this.btnEditarPartida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
-            this.btnEditarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarPartida.FlatAppearance.BorderSize = 0;
-            this.btnEditarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarPartida.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnEditarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarPartida.ForeColor = System.Drawing.Color.White;
-            this.btnEditarPartida.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnEditarPartida.IconColor = System.Drawing.Color.White;
-            this.btnEditarPartida.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditarPartida.IconSize = 40;
-            this.btnEditarPartida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarPartida.Location = new System.Drawing.Point(418, 3);
-            this.btnEditarPartida.MinimumSize = new System.Drawing.Size(190, 50);
-            this.btnEditarPartida.Name = "btnEditarPartida";
-            this.btnEditarPartida.Rotation = 0D;
-            this.btnEditarPartida.Size = new System.Drawing.Size(190, 50);
-            this.btnEditarPartida.TabIndex = 6;
-            this.btnEditarPartida.Text = "Editar Partida";
-            this.btnEditarPartida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditarPartida.UseVisualStyleBackColor = false;
-            this.btnEditarPartida.Click += new System.EventHandler(this.btnEditarPartida_Click);
-            // 
-            // btnNuevaCuenta
-            // 
-            this.btnNuevaCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevaCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnNuevaCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevaCuenta.FlatAppearance.BorderSize = 0;
-            this.btnNuevaCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaCuenta.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnNuevaCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaCuenta.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaCuenta.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnNuevaCuenta.IconColor = System.Drawing.Color.White;
-            this.btnNuevaCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNuevaCuenta.IconSize = 40;
-            this.btnNuevaCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevaCuenta.Location = new System.Drawing.Point(222, 3);
-            this.btnNuevaCuenta.MinimumSize = new System.Drawing.Size(190, 50);
-            this.btnNuevaCuenta.Name = "btnNuevaCuenta";
-            this.btnNuevaCuenta.Rotation = 0D;
-            this.btnNuevaCuenta.Size = new System.Drawing.Size(190, 50);
-            this.btnNuevaCuenta.TabIndex = 15;
-            this.btnNuevaCuenta.Text = "Nueva cuenta";
-            this.btnNuevaCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevaCuenta.UseVisualStyleBackColor = false;
-            this.btnNuevaCuenta.Click += new System.EventHandler(this.btnNuevaCuenta_Click);
-            // 
-            // btnEliminarCuenta
-            // 
-            this.btnEliminarCuenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(69)))), ((int)(((byte)(96)))));
-            this.btnEliminarCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarCuenta.FlatAppearance.BorderSize = 0;
-            this.btnEliminarCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarCuenta.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnEliminarCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCuenta.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCuenta.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnEliminarCuenta.IconColor = System.Drawing.Color.White;
-            this.btnEliminarCuenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminarCuenta.IconSize = 40;
-            this.btnEliminarCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarCuenta.Location = new System.Drawing.Point(18, 3);
-            this.btnEliminarCuenta.MinimumSize = new System.Drawing.Size(190, 50);
-            this.btnEliminarCuenta.Name = "btnEliminarCuenta";
-            this.btnEliminarCuenta.Rotation = 0D;
-            this.btnEliminarCuenta.Size = new System.Drawing.Size(198, 50);
-            this.btnEliminarCuenta.TabIndex = 13;
-            this.btnEliminarCuenta.Text = "Eliminar Cuenta";
-            this.btnEliminarCuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminarCuenta.UseVisualStyleBackColor = false;
-            this.btnEliminarCuenta.Click += new System.EventHandler(this.btnEliminarCuenta_Click);
-            // 
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -695,21 +680,21 @@
             // 
             this.tablePartidas.AllowUserToAddRows = false;
             this.tablePartidas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
-            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.tablePartidas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tablePartidas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tablePartidas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tablePartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablePartidas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.tablePartidas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(88)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablePartidas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tablePartidas.ColumnHeadersHeight = 40;
             this.tablePartidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnFecha,
@@ -717,14 +702,14 @@
             this.ColumnDetalle,
             this.ColumnDebe,
             this.ColumnHaber});
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablePartidas.DefaultCellStyle = dataGridViewCellStyle3;
             this.tablePartidas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tablePartidas.EnableHeadersVisualStyles = false;
             this.tablePartidas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));

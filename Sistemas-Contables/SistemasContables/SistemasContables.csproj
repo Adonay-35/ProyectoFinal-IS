@@ -71,6 +71,7 @@
     </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,20 +92,37 @@
     <Compile Include="controller\LibroDiariosController.cs" />
     <Compile Include="controller\LibroMayorController.cs" />
     <Compile Include="controller\PartidasController.cs" />
+    <Compile Include="controller\UsuarioController.cs" />
     <Compile Include="DataBase\BalanceComprobacionDAO.cs" />
     <Compile Include="DataBase\BalanceGeneralDAO.cs" />
     <Compile Include="DataBase\Conexion.cs" />
     <Compile Include="DataBase\CuentaPartidaDAO.cs" />
     <Compile Include="DataBase\CuentasDAO.cs" />
     <Compile Include="DataBase\DAO.cs" />
+    <Compile Include="DataBase\DepartamentosDAO.cs" />
+    <Compile Include="DataBase\DireccionesDAO.cs" />
+    <Compile Include="DataBase\DistritosDAO.cs" />
+    <Compile Include="DataBase\EmpleadosDAO.cs" />
     <Compile Include="DataBase\EstadoDeResultadosDAO.cs" />
+    <Compile Include="DataBase\EstadosDAO.cs" />
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
     <Compile Include="DataBase\LibroMayorDAO.cs" />
+    <Compile Include="DataBase\MunicipiosDAO.cs" />
     <Compile Include="DataBase\PartidasDAO.cs" />
+    <Compile Include="DataBase\RolesDAO.cs" />
+    <Compile Include="DataBase\UsuariosDAO.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\CuentaPartida.cs" />
+    <Compile Include="Models\Departamento.cs" />
+    <Compile Include="Models\Direccion.cs" />
+    <Compile Include="Models\Distrito.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\LibroDiario.cs" />
+    <Compile Include="Models\Municipio.cs" />
     <Compile Include="Models\Partida.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Views\AgregarLibroDiarioForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +171,12 @@
     <Compile Include="Views\LibroMayorForm.Designer.cs">
       <DependentUpon>LibroMayorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LibroMayorForm.resx">
       <DependentUpon>LibroMayorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
