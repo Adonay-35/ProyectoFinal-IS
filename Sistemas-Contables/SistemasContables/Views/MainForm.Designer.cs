@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation2 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation4 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,6 +60,7 @@
             this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
             this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
+            this.userName = new FontAwesome.Sharp.IconButton();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -72,6 +73,7 @@
             // panelNavegacion
             // 
             this.panelNavegacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.panelNavegacion.Controls.Add(this.userName);
             this.panelNavegacion.Controls.Add(this.panel2);
             this.panelNavegacion.Controls.Add(this.btnBalanceGeneral);
             this.panelNavegacion.Controls.Add(this.btnEstadoDeResultados);
@@ -309,7 +311,7 @@
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 35;
             this.btnMinimizar.Location = new System.Drawing.Point(747, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
             this.btnMinimizar.TabIndex = 4;
@@ -328,7 +330,7 @@
             this.btnRestoreWindow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRestoreWindow.IconSize = 35;
             this.btnRestoreWindow.Location = new System.Drawing.Point(798, 0);
-            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestoreWindow.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestoreWindow.Name = "btnRestoreWindow";
             this.btnRestoreWindow.Size = new System.Drawing.Size(51, 40);
             this.btnRestoreWindow.TabIndex = 3;
@@ -348,7 +350,7 @@
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 35;
             this.btnMaximizar.Location = new System.Drawing.Point(849, 0);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(51, 40);
             this.btnMaximizar.TabIndex = 2;
@@ -369,7 +371,7 @@
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 35;
             this.btnExit.Location = new System.Drawing.Point(900, 0);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(51, 40);
             this.btnExit.TabIndex = 1;
@@ -398,7 +400,7 @@
             this.AnimacionPanelNavegacion.SetDecoration(this.panelContenido, Guna.UI.Animation.DecorationType.None);
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(252, 40);
-            this.panelContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(951, 674);
             this.panelContenido.TabIndex = 8;
@@ -543,26 +545,51 @@
             // 
             this.AnimacionPanelNavegacion.AnimationType = Guna.UI.Animation.AnimationType.HorizSlide;
             this.AnimacionPanelNavegacion.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation2;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation4;
             // 
             // gunaResize
             // 
             this.gunaResize.TargetForm = this;
+            // 
+            // userName
+            // 
+            this.userName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.userName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.userName, Guna.UI.Animation.DecorationType.None);
+            this.userName.FlatAppearance.BorderSize = 0;
+            this.userName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.ForeColor = System.Drawing.Color.White;
+            this.userName.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.userName.IconColor = System.Drawing.Color.White;
+            this.userName.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userName.Location = new System.Drawing.Point(0, 700);
+            this.userName.MinimumSize = new System.Drawing.Size(250, 60);
+            this.userName.Name = "userName";
+            this.userName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.userName.Size = new System.Drawing.Size(252, 60);
+            this.userName.TabIndex = 22;
+            this.userName.Text = "userName";
+            this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.userName.UseVisualStyleBackColor = true;
+            this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // MainForm
             // 
@@ -618,6 +645,7 @@
         private Guna.UI.WinForms.GunaDragControl gunaDragTituloIcon;
         private Guna.UI.WinForms.GunaTransition AnimacionPanelNavegacion;
         private Guna.UI.WinForms.GunaResize gunaResize;
+        private FontAwesome.Sharp.IconButton userName;
     }
 }
 

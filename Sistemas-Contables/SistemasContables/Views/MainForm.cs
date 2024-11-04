@@ -60,6 +60,8 @@ namespace SistemasContables
 
             activaButton(this.btnInicio);
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
+
+            userName.Text = LoginForm.nombreUsuario;
         }
 
         // cierra el programa
@@ -389,5 +391,15 @@ namespace SistemasContables
             listaYears.Reverse();
         }
 
+        private void userName_Click(object sender, EventArgs e)
+        {
+            // Muestra un cuadro de diálogo de confirmación
+            var result = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Confirmar cierre de sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+        }
     }
 }

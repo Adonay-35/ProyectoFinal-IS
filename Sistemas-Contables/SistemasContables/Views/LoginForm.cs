@@ -14,7 +14,7 @@ namespace SistemasContables.Views
     public partial class LoginForm : Form
     {
         private UsuarioController usuarioController;
-
+        public static string nombreUsuario;
         public LoginForm()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace SistemasContables.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string nombreUsuario = txtNombreUsuario.Text;
+            nombreUsuario = txtNombreUsuario.Text;
             string claveUsuario = txtClaveUsuario.Text;
 
             if (usuarioController.Login(nombreUsuario, claveUsuario))
