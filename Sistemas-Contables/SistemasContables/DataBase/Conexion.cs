@@ -90,7 +90,6 @@ namespace SistemasContables.DataBase
                     sql += "ON DELETE CASCADE ON UPDATE CASCADE";
                     sql += ");";
 
-<<<<<<< HEAD
                     sql += "CREATE TABLE departamento(";
                     sql += "idDepartamento INTEGER PRIMARY KEY AUTOINCREMENT,";
                     sql += "nombreDepartamento TEXT(100)";
@@ -161,8 +160,6 @@ namespace SistemasContables.DataBase
                     sql += "ON DELETE CASCADE ON UPDATE CASCADE";
                     sql += ");";
 
-=======
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
                     sql += cuentasInsert();
 
                     command.CommandText = sql;

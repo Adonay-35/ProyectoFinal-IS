@@ -132,10 +132,6 @@
             this.btnAgregarLibro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarLibro.FlatAppearance.BorderSize = 0;
             this.btnAgregarLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
-=======
-            this.btnAgregarLibro.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnAgregarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarLibro.ForeColor = System.Drawing.Color.White;
             this.btnAgregarLibro.IconChar = FontAwesome.Sharp.IconChar.Check;
@@ -146,10 +142,6 @@
             this.btnAgregarLibro.Location = new System.Drawing.Point(210, 395);
             this.btnAgregarLibro.MaximumSize = new System.Drawing.Size(150, 50);
             this.btnAgregarLibro.Name = "btnAgregarLibro";
-<<<<<<< HEAD
-=======
-            this.btnAgregarLibro.Rotation = 0D;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnAgregarLibro.Size = new System.Drawing.Size(136, 50);
             this.btnAgregarLibro.TabIndex = 85;
             this.btnAgregarLibro.Text = "Nuevo";
@@ -177,10 +169,6 @@
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
-=======
-            this.btnCancel.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.Reply;
@@ -191,10 +179,6 @@
             this.btnCancel.Location = new System.Drawing.Point(42, 395);
             this.btnCancel.MaximumSize = new System.Drawing.Size(150, 50);
             this.btnCancel.Name = "btnCancel";
-<<<<<<< HEAD
-=======
-            this.btnCancel.Rotation = 0D;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnCancel.Size = new System.Drawing.Size(132, 50);
             this.btnCancel.TabIndex = 84;
             this.btnCancel.Text = "Cancelar";
@@ -255,10 +239,6 @@
             this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
-=======
-            this.btnMinimizar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -266,10 +246,6 @@
             this.btnMinimizar.Location = new System.Drawing.Point(288, 0);
             this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
-<<<<<<< HEAD
-=======
-            this.btnMinimizar.Rotation = 0D;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnMinimizar.Size = new System.Drawing.Size(51, 40);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -290,10 +266,6 @@
             this.btnExit.Location = new System.Drawing.Point(339, 0);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
-<<<<<<< HEAD
-=======
-            this.btnExit.Rotation = 0D;
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.btnExit.Size = new System.Drawing.Size(51, 40);
             this.btnExit.TabIndex = 1;
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -328,10 +300,7 @@
             this.MaximumSize = new System.Drawing.Size(390, 514);
             this.MinimumSize = new System.Drawing.Size(390, 514);
             this.Name = "AgregarLibroDiarioForm";
-<<<<<<< HEAD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-=======
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
             this.Text = "AgregarLibroDiarioForm";
             this.panelContenedor.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);

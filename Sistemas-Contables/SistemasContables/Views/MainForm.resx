@@ -120,55 +120,35 @@
   <metadata name="AnimacionPanelNavegacion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>329, 15</value>
   </metadata>
-<<<<<<< HEAD
   <data name="animation4.BlindCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
-=======
-  <data name="animation1.BlindCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
         dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
         d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
 </value>
   </data>
-<<<<<<< HEAD
   <data name="animation4.MosaicCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
-=======
-  <data name="animation1.MosaicCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
         dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
         d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
 </value>
   </data>
-<<<<<<< HEAD
   <data name="animation4.MosaicShift" mimetype="application/x-microsoft.net.object.binary.base64">
-=======
-  <data name="animation1.MosaicShift" mimetype="application/x-microsoft.net.object.binary.base64">
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
         dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
         d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
 </value>
   </data>
-<<<<<<< HEAD
   <data name="animation4.ScaleCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
-=======
-  <data name="animation1.ScaleCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
         dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
         d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
 </value>
   </data>
-<<<<<<< HEAD
   <data name="animation4.SlideCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
-=======
-  <data name="animation1.SlideCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
         dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
@@ -184,11 +164,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-<<<<<<< HEAD
         v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAA5zAAAOcwE5YBWp
-=======
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAA51AAAOdQG5Y1Ey
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
         AAD+VElEQVR4XuzcBZhc5dnG8RMcilVo+wEhttmkSAuUUiCyEYK7NXiRQgulpbRocYoUiawkwaVY0EKL
         U9whEBxirMusu4w83/POnmFl3pBNdmfmzJz/fX2/zsybs+c9Nme4vuu+jiMiAAAAAAAAAAAAAAAAAAAA
         ADzKOggAAAAAAAAAAAAAAAAAAADAG6yDAAAAAAAAAAAAAAAAAAAAALzBOggAAAAAAAAAAAAAAAAAAADA

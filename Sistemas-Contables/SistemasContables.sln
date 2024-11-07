@@ -1,12 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
-=======
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30517.126
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemasContables", "SistemasContables\SistemasContables.csproj", "{2C2D7D97-45A4-46D9-8BF0-904E9C71A9AC}"
 EndProject

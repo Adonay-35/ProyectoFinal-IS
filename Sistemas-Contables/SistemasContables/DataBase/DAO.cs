@@ -32,7 +32,6 @@ namespace SistemasContables.DataBase
         protected const string NIVEL = "nivel";
         protected const string NOMBRE_CUENTA = "nombreCuenta";
         protected const string TIPO_SALDO = "tipoSaldo";
-<<<<<<< HEAD
 
         protected const string TABLE_USUARIO = "usuario";
         protected const string ID_USUARIO = "idUsuario";
@@ -81,7 +80,5 @@ namespace SistemasContables.DataBase
         protected const string LINEA2 = "linea2";
         protected const string CODIGO_POSTAL = "codigoPostal";
         //protected const string ID_DISTRITO = "idDistrito";
-=======
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     }
 }

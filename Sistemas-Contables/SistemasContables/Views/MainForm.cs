@@ -60,11 +60,8 @@ namespace SistemasContables
 
             activaButton(this.btnInicio);
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
-<<<<<<< HEAD
 
             userName.Text = LoginForm.nombreUsuario;
-=======
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
         }
 
         // cierra el programa
@@ -394,7 +391,6 @@ namespace SistemasContables
             listaYears.Reverse();
         }
 
-<<<<<<< HEAD
         private void userName_Click(object sender, EventArgs e)
         {
             // Muestra un cuadro de diálogo de confirmación
@@ -405,7 +401,5 @@ namespace SistemasContables
                 Application.Restart();
             }
         }
-=======
->>>>>>> 79a3f1501ccdc1eb2854df57d60a9f824b437c6c
     }
 }
