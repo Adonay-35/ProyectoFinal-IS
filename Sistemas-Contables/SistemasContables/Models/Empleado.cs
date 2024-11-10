@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace SistemasContables.Models
 {
@@ -13,6 +16,17 @@ namespace SistemasContables.Models
         private string telefono;
         private string correo;
         private int idDireccion;
+
+        public Empleado(int idEmpleado, string nombres, string apellidos)
+        {
+            this.idEmpleado = idEmpleado;
+            this.nombresEmpleado = nombres;
+            this.apellidosEmpleado = apellidos;
+        }
+
+        public Empleado()
+        {
+        }
 
         public int IdEmpleado
         {
@@ -67,5 +81,8 @@ namespace SistemasContables.Models
             get { return this.idDireccion; }
             set { this.idDireccion = value; }
         }
+
+    
+        
     }
 }

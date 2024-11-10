@@ -7,6 +7,18 @@ namespace SistemasContables.Models
         private int idRol;
         private string nombreRol;
 
+        public Rol(int idRol, string descripcion)
+        {
+            this.idRol = idRol;
+            this.nombreRol = descripcion;
+        }
+
+
+        public Rol()
+        {
+        }
+
+
         public int IdRol
         {
             get { return this.idRol; }

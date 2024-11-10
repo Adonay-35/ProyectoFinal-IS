@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemasContables.controller
 {
-    internal class UsuarioController
+    public class UsuarioController
     {
         private UsuariosDAO usuariosDAO;
 
@@ -33,5 +33,33 @@ namespace SistemasContables.controller
         }
 
         // Otros métodos relacionados a la gestión de usuarios se pueden agregar aquí.
+
+        public bool insert(Usuario usuario)
+        {
+            return usuariosDAO.insert(usuario);  
+        }
+
+        public List<Usuario> getList()
+        {
+            return usuariosDAO.getList();  
+        }
+
+        public bool update(Usuario usuario)
+        {
+            return usuariosDAO.update(usuario);  
+        }
+
+        public void delete(int idUsuario)
+        {
+            usuariosDAO.delete(idUsuario);  // Elimina un usuario usando su id
+        }
+
+        public Usuario ObtenerUsuarioPorId(int idUsuario)
+        {
+            // Obtiene el usuario con el ID proporcionado y lo retorna
+            return usuariosDAO.ObtenerUsuarioPorId(idUsuario);
+        }
+
+
     }
 }

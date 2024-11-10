@@ -174,8 +174,6 @@ namespace SistemasContables.DataBase
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         static private string cuentasInsert()

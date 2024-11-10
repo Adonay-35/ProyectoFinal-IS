@@ -1,4 +1,10 @@
-﻿using System;
+﻿using SistemasContables.DataBase;
+using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Data;
+using System.Windows.Forms;
+using System.Web.Security;
 
 namespace SistemasContables.Models
 {
@@ -10,6 +16,9 @@ namespace SistemasContables.Models
         private int idEmpleado;
         private int idRol;
         private int idEstado;
+        private List<Usuario> listaUsuarios;
+        private List<Rol> listaRol;
+        private List<Estado> listaEstado;
 
         public int IdUsuario
         {
@@ -82,5 +91,127 @@ namespace SistemasContables.Models
                 this.idEstado = value;
             }
         }
+
+        public List<Usuario> ListaUsuarios
+        {
+            get
+            {
+                return this.listaUsuarios;
+            }
+            set
+            {
+                this.listaUsuarios = value;
+            }
+        }
+
+        public List<Estado> ObtenerEstados()
+        {
+            List<Estado> listaEstados = new List<Estado>();
+
+            try
+            {
+                using (SQLiteCommand comando = new SQLiteCommand("SELECT idEstado, descripcionEstado FROM estado", Conexion.Conn))
+                {
+                    Conexion.Conn.Open();
+                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    {
+                        while (resultado.Read())
+                        {
+                            listaEstados.Add(new Estado(
+                                resultado.GetInt32(0), // idEstado
+                                resultado.GetString(1)  // descripcionEstado
+                            ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Conexion.Conn.State == ConnectionState.Open)
+                {
+                    Conexion.Conn.Close();
+                }
+            }
+
+            return listaEstados;
+        }
+
+        public List<Empleado> ObtenerEmpleados()
+        {
+            List<Empleado> listaEmpleados = new List<Empleado>();
+
+            try
+            {
+                using (SQLiteCommand comando = new SQLiteCommand("SELECT idEmpleado, nombresEmpleado, apellidosEmpleado FROM empleado", Conexion.Conn))
+                {
+                    Conexion.Conn.Open();
+                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    {
+                        while (resultado.Read())
+                        {
+                            listaEmpleados.Add(new Empleado(
+                                resultado.GetInt32(0), // idEmpleado
+                                resultado.GetString(1), // nombresEmpleado
+                                resultado.GetString(2)  // apellidosEmpleado
+                            ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Conexion.Conn.State == ConnectionState.Open)
+                {
+                    Conexion.Conn.Close();
+                }
+            }
+
+            return listaEmpleados;
+        }
+
+        public List<Rol> ObtenerRoles()
+        {
+            List<Rol> listaRoles = new List<Rol>();
+
+            try
+            {
+                using (SQLiteCommand comando = new SQLiteCommand("SELECT idRol, nombreRol FROM rol", Conexion.Conn))
+                {
+                    Conexion.Conn.Open();
+                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    {
+                        while (resultado.Read())
+                        {
+                            listaRoles.Add(new Rol(
+                                resultado.GetInt32(0), // idRol
+                                resultado.GetString(1)  // nombreRol
+                            ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Conexion.Conn.State == ConnectionState.Open)
+                {
+                    Conexion.Conn.Close();
+                }
+            }
+
+            return listaRoles;
+        }
+
     }
 }

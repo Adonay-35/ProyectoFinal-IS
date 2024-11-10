@@ -7,6 +7,16 @@ namespace SistemasContables.Models
         private int idEstado;
         private string descripcionEstado;
 
+        public Estado(int idEstado, string descripcion)
+        {
+            this.idEstado = idEstado;
+            this.descripcionEstado = descripcion;
+        }
+
+        public Estado()
+        {
+        }
+
         public int IdEstado
         {
             get { return this.idEstado; }
