@@ -59,5 +59,120 @@ namespace SistemasContables.DataBase
 
             return lista;
         }
+
+        public bool insert(Rol rol)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"INSERT INTO {TABLE_ROL}({NOMBRE_ROL}) VALUES(@nombreRol);";
+                    command.CommandText = sql;
+                    command.Connection = conn;
+                    command.Parameters.AddWithValue("@nombreRol", rol.NombreRol);
+                    command.ExecuteNonQuery();
+                }
+
+                conn.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool update(Rol rol)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"UPDATE {TABLE_ROL} SET {NOMBRE_ROL} = @nombreRol WHERE {ID_ROL} = @idRol";
+                    command.CommandText = sql;
+                    command.Connection = conn;
+                    command.Parameters.AddWithValue("@nombreRol", rol.NombreRol);
+                    command.Parameters.AddWithValue("@idRol", rol.IdRol);
+                    command.ExecuteNonQuery();
+                }
+
+                conn.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public void delete(int idRol)
+        {
+            try
+            {
+                conn = Conexion.Conn;
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"DELETE FROM {TABLE_ROL} WHERE {ID_ROL} = @idRol";
+                    command.CommandText = sql;
+                    command.Connection = conn;
+                    command.Parameters.AddWithValue("@idRol", idRol);
+                    command.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public Rol ObtenerRolPorId(int idRol)
+        {
+            Rol rol = null;
+
+            try
+            {
+                conn = Conexion.Conn;
+                conn.Open();
+
+                using (SQLiteCommand command = new SQLiteCommand())
+                {
+                    string sql = $"SELECT * FROM {TABLE_ROL} WHERE {ID_ROL} = @idRol";
+                    command.CommandText = sql;
+                    command.Connection = conn;
+                    command.Parameters.AddWithValue("@idRol", idRol);
+
+                    using (SQLiteDataReader result = command.ExecuteReader())
+                    {
+                        if (result.HasRows && result.Read())
+                        {
+                            rol = new Rol();
+                            rol.IdRol = Convert.ToInt32(result[ID_ROL]);
+                            rol.NombreRol = result[NOMBRE_ROL].ToString();
+                        }
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return rol;
+        }
+
     }
 }

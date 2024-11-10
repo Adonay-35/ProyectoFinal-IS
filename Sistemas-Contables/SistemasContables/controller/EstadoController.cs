@@ -21,5 +21,26 @@ namespace SistemasContables.controller
         {
             return estadosDAO.getList();
         }
+
+        public bool insert(Estado estado)
+        {
+            return estadosDAO.insert(estado);
+        }
+
+        public bool update(Estado estado)
+        {
+            return estadosDAO.update(estado);
+        }
+
+        public void delete(int idEstado)
+        {
+            estadosDAO.delete(idEstado);  // Elimina un usuario usando su id
+        }
+
+        public Estado ObtenerEstadoPorId(int idEstado)
+        {
+            // Obtiene el usuario con el ID proporcionado y lo retorna
+            return estadosDAO.ObtenerEstadoPorId(idEstado);
+        }
     }
 }

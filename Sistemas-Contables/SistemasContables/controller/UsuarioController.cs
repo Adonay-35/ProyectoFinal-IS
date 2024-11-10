@@ -33,15 +33,14 @@ namespace SistemasContables.controller
         }
 
         // Otros métodos relacionados a la gestión de usuarios se pueden agregar aquí.
+        public List<Usuario> getList()
+        {
+            return usuariosDAO.getList();
+        }
 
         public bool insert(Usuario usuario)
         {
             return usuariosDAO.insert(usuario);  
-        }
-
-        public List<Usuario> getList()
-        {
-            return usuariosDAO.getList();  
         }
 
         public bool update(Usuario usuario)

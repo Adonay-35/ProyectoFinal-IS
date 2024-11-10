@@ -121,7 +121,6 @@ namespace SistemasContables.Views
                 if (resultado)
                 {
                     MessageBox.Show("Usuario agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Aquí puedes recargar la lista de usuarios, si es necesario
                     Close();
                 }
                 else

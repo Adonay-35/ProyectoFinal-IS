@@ -22,6 +22,25 @@ namespace SistemasContables.controller
             return rolesDAO.getList();
         }
 
+        public bool insert(Rol rol)
+        {
+            return rolesDAO.insert(rol);
+        }
 
+        public bool update(Rol rol)
+        {
+            return rolesDAO.update(rol);
+        }
+
+        public void delete(int idRol)
+        {
+            rolesDAO.delete(idRol);  // Elimina un usuario usando su id
+        }
+
+        public Rol ObtenerRolPorId(int idRol)
+        {
+            // Obtiene el usuario con el ID proporcionado y lo retorna
+            return rolesDAO.ObtenerRolPorId(idRol);
+        }
     }
 }
