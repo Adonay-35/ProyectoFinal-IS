@@ -393,6 +393,9 @@ namespace SistemasContables
 
         private void userName_Click(object sender, EventArgs e)
         {
+            // Aplica el estilo al botón
+            activaButton(userName);
+
             // Muestra un cuadro de diálogo de confirmación
             var result = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Confirmar cierre de sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
