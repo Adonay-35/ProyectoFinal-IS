@@ -1,10 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -20,57 +17,52 @@ namespace SistemasContables.DataBase
 
         public List<Cuenta> getList()
         {
-
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_CUENTA} ORDER BY {NOMBRE_CUENTA}";
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_CUENTA} ORDER BY {NOMBRE_CUENTA}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Cuenta cuenta = new Cuenta();
+                                while (result.Read())
+                                {
+                                    Cuenta cuenta = new Cuenta
+                                    {
+                                        IdCuenta = Convert.ToInt32(result[ID_CUENTA]),
+                                        Codigo = result[CODIGO].ToString(),
+                                        Nivel = Convert.ToInt32(result[NIVEL]),
+                                        Nombre = result[NOMBRE_CUENTA].ToString(),
+                                        TipoSaldo = result[TIPO_SALDO].ToString()
+                                    };
 
-                                cuenta.IdCuenta = Convert.ToInt32(result[ID_CUENTA]);
-                                cuenta.Codigo = result[CODIGO].ToString();
-                                cuenta.Nivel = Convert.ToInt32(result[NIVEL]);
-                                cuenta.Nombre = result[NOMBRE_CUENTA].ToString();
-                                cuenta.TipoSaldo = result[TIPO_SALDO].ToString();
-
-                                lista.Add(cuenta);
+                                    lista.Add(cuenta);
+                                }
                             }
                         }
                     }
-
+                    conn.Close();
                 }
 
-                conn.Close();
-
-
-            } catch(Exception exception)
+            }
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return lista;
-
         }
-
     }
 }

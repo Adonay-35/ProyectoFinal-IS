@@ -1,7 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -19,42 +19,43 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_USUARIO} ORDER BY {NOMBRE_USUARIO}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_USUARIO} ORDER BY {NOMBRE_USUARIO}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Usuario usuario = new Usuario();
+                                while (result.Read())
+                                {
+                                    Usuario usuario = new Usuario();
 
-                                usuario.IdUsuario = Convert.ToInt32(result[ID_USUARIO]);
-                                usuario.NombreUsuario = result[NOMBRE_USUARIO].ToString();
-                                usuario.ClaveUsuario = result[CLAVE_USUARIO].ToString();
-                                usuario.IdEmpleado = Convert.ToInt32(result[ID_EMPLEADO]);
-                                usuario.IdRol = Convert.ToInt32(result[ID_ROL]);
-                                usuario.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
+                                    usuario.IdUsuario = Convert.ToInt32(result[ID_USUARIO]);
+                                    usuario.NombreUsuario = result[NOMBRE_USUARIO].ToString();
+                                    usuario.ClaveUsuario = result[CLAVE_USUARIO].ToString();
+                                    usuario.IdEmpleado = Convert.ToInt32(result[ID_EMPLEADO]);
+                                    usuario.IdRol = Convert.ToInt32(result[ID_ROL]);
+                                    usuario.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
 
-                                lista.Add(usuario);
+                                    lista.Add(usuario);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {
@@ -70,34 +71,35 @@ namespace SistemasContables.DataBase
 
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_USUARIO} WHERE {NOMBRE_USUARIO} = @nombreUsuario";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-                    command.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows && result.Read())
+                        string sql = $"SELECT * FROM {TABLE_USUARIO} WHERE {NOMBRE_USUARIO} = @nombreUsuario";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            usuario = new Usuario();
+                            if (result.HasRows && result.Read())
+                            {
+                                usuario = new Usuario();
 
-                            usuario.IdUsuario = Convert.ToInt32(result[ID_USUARIO]);
-                            usuario.NombreUsuario = result[NOMBRE_USUARIO].ToString();
-                            usuario.ClaveUsuario = result[CLAVE_USUARIO].ToString();
-                            usuario.IdEmpleado = Convert.ToInt32(result[ID_EMPLEADO]);
-                            usuario.IdRol = Convert.ToInt32(result[ID_ROL]);
-                            usuario.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
+                                usuario.IdUsuario = Convert.ToInt32(result[ID_USUARIO]);
+                                usuario.NombreUsuario = result[NOMBRE_USUARIO].ToString();
+                                usuario.ClaveUsuario = result[CLAVE_USUARIO].ToString();
+                                usuario.IdEmpleado = Convert.ToInt32(result[ID_EMPLEADO]);
+                                usuario.IdRol = Convert.ToInt32(result[ID_ROL]);
+                                usuario.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
 
+                            }
                         }
                     }
                 }
-
                 conn.Close();
+
             }
             catch (Exception exception)
             {

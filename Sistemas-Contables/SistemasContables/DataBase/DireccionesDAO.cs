@@ -1,7 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -19,41 +19,43 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_DIRECCION} ORDER BY {LINEA1}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_DIRECCION} ORDER BY {LINEA1}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Direccion direccion = new Direccion();
+                                while (result.Read())
+                                {
+                                    Direccion direccion = new Direccion
+                                    {
+                                        IdDireccion = Convert.ToInt32(result[ID_DIRECCION]),
+                                        Linea1 = result[LINEA1].ToString(),
+                                        Linea2 = result[LINEA2].ToString(),
+                                        CodigoPostal = result[CODIGO_POSTAL].ToString(),
+                                        IdDistrito = Convert.ToInt32(result[ID_DISTRITO])
+                                    };
 
-                                direccion.IdDireccion = Convert.ToInt32(result[ID_DIRECCION]);
-                                direccion.Linea1 = result[LINEA1].ToString();
-                                direccion.Linea2 = result[LINEA2].ToString();
-                                direccion.CodigoPostal = result[CODIGO_POSTAL].ToString();
-                                direccion.IdDistrito = Convert.ToInt32(result[ID_DISTRITO]);
-
-                                lista.Add(direccion);
+                                    lista.Add(direccion);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {

@@ -1,7 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -19,38 +19,40 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_DEPARTAMENTO} ORDER BY {NOMBRE_DEPARTAMENTO}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_DEPARTAMENTO} ORDER BY {NOMBRE_DEPARTAMENTO}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Departamento departamento = new Departamento();
+                                while (result.Read())
+                                {
+                                    Departamento departamento = new Departamento
+                                    {
+                                        IdDepartamento = Convert.ToInt32(result[ID_DEPARTAMENTO]),
+                                        NombreDepartamento = result[NOMBRE_DEPARTAMENTO].ToString()
+                                    };
 
-                                departamento.IdDepartamento = Convert.ToInt32(result[ID_DEPARTAMENTO]);
-                                departamento.NombreDepartamento = result[NOMBRE_DEPARTAMENTO].ToString();
-
-                                lista.Add(departamento);
+                                    lista.Add(departamento);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {

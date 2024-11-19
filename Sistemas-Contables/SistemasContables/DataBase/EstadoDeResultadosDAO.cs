@@ -1,10 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -54,40 +51,34 @@ namespace SistemasContables.DataBase
 
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{DEBE}) FROM {TABLE_CUENTA_PARTIDA} ";
-                    sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
-                    sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
-                    sql += $"WHERE  {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @codigo || '%' ";
-
-
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
-                    command.Parameters.AddWithValue("@codigo", codigo);
-                    var result = command.ExecuteScalar();
-
-                    if(!string.IsNullOrEmpty(result.ToString()))
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        total = Convert.ToDouble(result);
+                        string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{DEBE}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"WHERE  {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @codigo + '%' ";
+
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@idLibroDiario", idLibro);
+                        command.Parameters.AddWithValue("@codigo", codigo);
+                        var result = command.ExecuteScalar();
+
+                        if (result != DBNull.Value && result != null)
+                        {
+                            total = Convert.ToDouble(result);
+                        }
                     }
-
-
+                    conn.Close();
                 }
-
-                conn.Close();
-
 
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
 
             return total;
@@ -100,33 +91,29 @@ namespace SistemasContables.DataBase
 
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{HABER}) FROM {TABLE_CUENTA_PARTIDA} ";
-                    sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
-                    sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
-                    sql += $"WHERE  {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @codigo || '%' ";
-
-
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@idLibroDiario", idLibro);
-                    command.Parameters.AddWithValue("@codigo", codigo);
-                    var result = command.ExecuteScalar();
-
-                    if (!string.IsNullOrEmpty(result.ToString()))
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        total = Convert.ToDouble(result);
+                        string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{HABER}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"WHERE  {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario AND {TABLE_CUENTA}.{CODIGO} LIKE @codigo + '%' ";
+
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@idLibroDiario", idLibro);
+                        command.Parameters.AddWithValue("@codigo", codigo);
+                        var result = command.ExecuteScalar();
+
+                        if (result != DBNull.Value && result != null)
+                        {
+                            total = Convert.ToDouble(result);
+                        }
                     }
-
+                    conn.Close();
                 }
-
-                conn.Close();
-
 
             }
             catch (Exception exception)

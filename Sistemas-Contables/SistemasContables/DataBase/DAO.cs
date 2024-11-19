@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace SistemasContables.DataBase
 {
     public class DAO
     {
-        protected SQLiteConnection conn;
+        protected SqlConnection conn;
 
         protected const string TABLE_LIBRO_DIARIO = "librodiario";
         protected const string ID_LIBRO_DIARIO = "n_libro";

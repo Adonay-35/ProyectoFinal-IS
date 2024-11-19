@@ -1,7 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -19,38 +19,39 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_ROL} ORDER BY {NOMBRE_ROL}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_ROL} ORDER BY {NOMBRE_ROL}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Rol rol = new Rol();
+                                while (result.Read())
+                                {
+                                    Rol rol = new Rol();
 
-                                rol.IdRol = Convert.ToInt32(result[ID_ROL]);
-                                rol.NombreRol = result[NOMBRE_ROL].ToString();
+                                    rol.IdRol = Convert.ToInt32(result[ID_ROL]);
+                                    rol.NombreRol = result[NOMBRE_ROL].ToString();
 
-                                lista.Add(rol);
+                                    lista.Add(rol);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {

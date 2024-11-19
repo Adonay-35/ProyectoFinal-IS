@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI.Animation.Animation animation4 = new Guna.UI.Animation.Animation();
+            Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
+            this.userName = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
             this.btnEstadoDeResultados = new FontAwesome.Sharp.IconButton();
@@ -60,7 +61,6 @@
             this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
             this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
-            this.userName = new FontAwesome.Sharp.IconButton();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -89,6 +89,31 @@
             this.panelNavegacion.Name = "panelNavegacion";
             this.panelNavegacion.Size = new System.Drawing.Size(252, 760);
             this.panelNavegacion.TabIndex = 2;
+            // 
+            // userName
+            // 
+            this.userName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.userName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.userName, Guna.UI.Animation.DecorationType.None);
+            this.userName.FlatAppearance.BorderSize = 0;
+            this.userName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.ForeColor = System.Drawing.Color.White;
+            this.userName.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.userName.IconColor = System.Drawing.Color.White;
+            this.userName.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userName.Location = new System.Drawing.Point(0, 700);
+            this.userName.MinimumSize = new System.Drawing.Size(250, 60);
+            this.userName.Name = "userName";
+            this.userName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.userName.Size = new System.Drawing.Size(252, 60);
+            this.userName.TabIndex = 22;
+            this.userName.Text = "userName";
+            this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.userName.UseVisualStyleBackColor = true;
+            this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // panel2
             // 
@@ -545,51 +570,26 @@
             // 
             this.AnimacionPanelNavegacion.AnimationType = Guna.UI.Animation.AnimationType.HorizSlide;
             this.AnimacionPanelNavegacion.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.AnimacionPanelNavegacion.DefaultAnimation = animation4;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.AnimacionPanelNavegacion.DefaultAnimation = animation1;
             // 
             // gunaResize
             // 
             this.gunaResize.TargetForm = this;
-            // 
-            // userName
-            // 
-            this.userName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.userName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.userName, Guna.UI.Animation.DecorationType.None);
-            this.userName.FlatAppearance.BorderSize = 0;
-            this.userName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.ForeColor = System.Drawing.Color.White;
-            this.userName.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.userName.IconColor = System.Drawing.Color.White;
-            this.userName.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.userName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userName.Location = new System.Drawing.Point(0, 700);
-            this.userName.MinimumSize = new System.Drawing.Size(250, 60);
-            this.userName.Name = "userName";
-            this.userName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.userName.Size = new System.Drawing.Size(252, 60);
-            this.userName.TabIndex = 22;
-            this.userName.Text = "userName";
-            this.userName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.userName.UseVisualStyleBackColor = true;
-            this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // MainForm
             // 

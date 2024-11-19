@@ -1,7 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SistemasContables.DataBase
@@ -19,39 +19,41 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_DISTRITO} ORDER BY {NOMBRE_DISTRITO}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_DISTRITO} ORDER BY {NOMBRE_DISTRITO}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Distrito distrito = new Distrito();
+                                while (result.Read())
+                                {
+                                    Distrito distrito = new Distrito
+                                    {
+                                        IdDistrito = Convert.ToInt32(result[ID_DISTRITO]),
+                                        NombreDistrito = result[NOMBRE_DISTRITO].ToString(),
+                                        IdMunicipio = Convert.ToInt32(result[ID_MUNICIPIO])
+                                    };
 
-                                distrito.IdDistrito = Convert.ToInt32(result[ID_DISTRITO]);
-                                distrito.NombreDistrito = result[NOMBRE_DISTRITO].ToString();
-                                distrito.IdMunicipio = Convert.ToInt32(result[ID_MUNICIPIO]);
-
-                                lista.Add(distrito);
+                                    lista.Add(distrito);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {
