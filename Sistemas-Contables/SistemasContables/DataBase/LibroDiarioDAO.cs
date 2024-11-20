@@ -1,7 +1,8 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,21 +23,20 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"INSERT INTO {TABLE_LIBRO_DIARIO}(periodo) VALUES(@periodo)";
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@periodo", periodo);
-                    command.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        string sql = $"INSERT INTO {TABLE_LIBRO_DIARIO}(periodo) VALUES(@periodo)";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@periodo", periodo);
+                        command.ExecuteNonQuery();
 
+                    }
+                    conn.Close();
                 }
-
-                conn.Close();
 
                 return true;
             }
@@ -53,41 +53,39 @@ namespace SistemasContables.DataBase
 
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_LIBRO_DIARIO}";
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (lista.Count > 0)
-                        {
-                            lista.Clear();
-                        }
+                        string sql = $"SELECT * FROM {TABLE_LIBRO_DIARIO}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
 
-                        if (result.HasRows)
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            while (result.Read())
+                            if (lista.Count > 0)
                             {
-                                LibroDiario libroDiario = new LibroDiario();
+                                lista.Clear();
+                            }
 
-                                libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
-                                libroDiario.Periodo = result[PERIODO].ToString();
+                            if (result.HasRows)
+                            {
+                                while (result.Read())
+                                {
+                                    LibroDiario libroDiario = new LibroDiario();
 
-                                lista.Add(libroDiario);
+                                    libroDiario.IdLibroDiario = Convert.ToInt32(result[ID_LIBRO_DIARIO].ToString());
+                                    libroDiario.Periodo = result[PERIODO].ToString();
+
+                                    lista.Add(libroDiario);
+                                }
                             }
                         }
+
                     }
-
+                    conn.Close();
                 }
-
-                conn.Close();
-
 
             }
             catch (Exception exception)
@@ -103,25 +101,23 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    deleteCuentasPartidas(idLibroDiario);
-                    deletePartidas(idLibroDiario);
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        deleteCuentasPartidas(idLibroDiario);
+                        deletePartidas(idLibroDiario);
 
-                    string sql = $"DELETE FROM {TABLE_LIBRO_DIARIO} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
-                    command.ExecuteNonQuery();
+                        string sql = $"DELETE FROM {TABLE_LIBRO_DIARIO} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
+                        command.ExecuteNonQuery();
 
+                    }
+                    conn.Close();
                 }
-
-                conn.Close();
-
 
                 return true;
             }
@@ -136,8 +132,7 @@ namespace SistemasContables.DataBase
 
         private void deletePartidas(int idLibroDiario)
         {
-
-            using (SQLiteCommand command = new SQLiteCommand())
+            using (SqlCommand command = new SqlCommand())
             {
                 string sql = $"DELETE FROM {TABLE_PARTIDA} WHERE {ID_LIBRO_DIARIO} = @idLibroDiario";
                 command.CommandText = sql;
@@ -150,11 +145,10 @@ namespace SistemasContables.DataBase
 
         private void deleteCuentasPartidas(int idLibroDiario)
         {
-
-            using (SQLiteCommand command = new SQLiteCommand())
+            using (SqlCommand command = new SqlCommand())
             {
                 string sql = $"DELETE FROM {TABLE_CUENTA_PARTIDA} WHERE {ID_PARTIDA} IN ";
-                sql += $"(SELECT {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} FROM {TABLE_CUENTA_PARTIDA} "; 
+                sql += $"(SELECT {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} FROM {TABLE_CUENTA_PARTIDA} ";
                 sql += $"INNER JOIN {TABLE_PARTIDA} ON ";
                 sql += $"{TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
                 sql += $"WHERE {TABLE_PARTIDA}.{ID_LIBRO_DIARIO} = @idLibroDiario)";
@@ -163,7 +157,6 @@ namespace SistemasContables.DataBase
                 command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
                 command.ExecuteNonQuery();
             }
-
         }
 
         public double total(string cuentaCalcular, int idLibroDiario)
@@ -184,39 +177,38 @@ namespace SistemasContables.DataBase
 
             try
             {
-                conn = Conexion.Conn;
-
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{campoCalcular}) FROM {TABLE_CUENTA_PARTIDA} ";
-                    sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
-                    sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
-                    sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND ";
-                    sql += queryString(cuentaCalcular, campoCalcular);
-
-                    if (string.IsNullOrEmpty(sql))
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        conn.Close();
+                        string sql = $"SELECT SUM({TABLE_CUENTA_PARTIDA}.{campoCalcular}) FROM {TABLE_CUENTA_PARTIDA} ";
+                        sql += $"INNER JOIN {TABLE_CUENTA} ON {TABLE_CUENTA_PARTIDA}.{ID_CUENTA} = {TABLE_CUENTA}.{ID_CUENTA} ";
+                        sql += $"INNER JOIN {TABLE_PARTIDA} ON {TABLE_CUENTA_PARTIDA}.{ID_PARTIDA} = {TABLE_PARTIDA}.{ID_PARTIDA} ";
+                        sql += $"WHERE {ID_LIBRO_DIARIO} = @idLibroDiario AND ";
+                        sql += queryString(cuentaCalcular, campoCalcular);
 
-                        return 0;
+                        if (string.IsNullOrEmpty(sql))
+                        {
+                            conn.Close();
+
+                            return 0;
+                        }
+                        Console.WriteLine(sql);
+
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+                        command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
+                        var result = command.ExecuteScalar();
+
+                        if (!string.IsNullOrEmpty(result.ToString()))
+                        {
+                            total = Convert.ToDouble(result);
+                        }
+
                     }
-                    Console.WriteLine(sql);
-
-                    command.CommandText = sql;
-                    command.Connection = Conexion.Conn;
-                    command.Parameters.AddWithValue("@idLibroDiario", idLibroDiario);
-                    var result = command.ExecuteScalar();
-
-                    if (!string.IsNullOrEmpty(result.ToString()))
-                    {
-                        total = Convert.ToDouble(result);
-                    }
-
+                    conn.Close();
                 }
-
-                conn.Close();
 
             }
             catch (Exception exception)
@@ -258,7 +250,7 @@ namespace SistemasContables.DataBase
             }
             else
             {
-                return null;
+                return "";
             }
 
             return sql;

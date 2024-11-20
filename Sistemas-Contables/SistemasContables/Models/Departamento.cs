@@ -7,6 +7,16 @@ namespace SistemasContables.Models
         private int idDepartamento;
         private string nombreDepartamento;
 
+        public Departamento(int iddepartamento, string departamento)
+        {
+            this.idDepartamento = iddepartamento;
+            this.nombreDepartamento = departamento;
+        }
+
+        public Departamento()
+        {
+        }
+
         public int IdDepartamento
         {
             get { return this.idDepartamento; }

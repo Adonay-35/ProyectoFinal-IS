@@ -32,7 +32,6 @@ namespace SistemasContables.controller
             return false; // Fallo en la autenticación
         }
 
-        // Otros métodos relacionados a la gestión de usuarios se pueden agregar aquí.
         public List<Usuario> getList()
         {
             return usuariosDAO.getList();
@@ -40,12 +39,12 @@ namespace SistemasContables.controller
 
         public bool insert(Usuario usuario)
         {
-            return usuariosDAO.insert(usuario);  
+            return usuariosDAO.insert(usuario);
         }
 
         public bool update(Usuario usuario)
         {
-            return usuariosDAO.update(usuario);  
+            return usuariosDAO.update(usuario);
         }
 
         public void delete(int idUsuario)
@@ -58,7 +57,5 @@ namespace SistemasContables.controller
             // Obtiene el usuario con el ID proporcionado y lo retorna
             return usuariosDAO.ObtenerUsuarioPorId(idUsuario);
         }
-
-
     }
 }

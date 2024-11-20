@@ -69,22 +69,6 @@ namespace SistemasContables.Views
             }
         }
 
-       
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             // Primero, verificamos si los campos obligatorios están llenos
@@ -132,7 +116,6 @@ namespace SistemasContables.Views
             {
 
                 // Editamos el usuario
-                    Usuario usuarioExistente = new Usuario();
                     int idUsuario = Convert.ToInt32(txtIdUsuario.Text);
                     string nombreUsuario = txtUsuario.Text;
                     string claveUsuario = txtClave.Text;
@@ -209,6 +192,21 @@ namespace SistemasContables.Views
                 cbEstado.SelectedIndex = 0;
                 cbRol.SelectedIndex = 0;
             }
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -806,7 +806,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1006, 718);
+            this.MinimumSize = new System.Drawing.Size(1006, 773);
             this.Name = "AgregarPartidaForm";
             this.Text = "AgregarPartidaForm";
             this.panelTop.ResumeLayout(false);

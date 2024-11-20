@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
-using System.Web.Security;
+using System.Data.SqlClient;
 
 namespace SistemasContables.Models
 {
@@ -16,6 +16,7 @@ namespace SistemasContables.Models
         private int idEmpleado;
         private int idRol;
         private int idEstado;
+
         private List<Usuario> listaUsuarios;
         private List<Rol> listaRol;
         private List<Estado> listaEstado;
@@ -92,28 +93,16 @@ namespace SistemasContables.Models
             }
         }
 
-        public List<Usuario> ListaUsuarios
-        {
-            get
-            {
-                return this.listaUsuarios;
-            }
-            set
-            {
-                this.listaUsuarios = value;
-            }
-        }
-
         public List<Estado> ObtenerEstados()
         {
             List<Estado> listaEstados = new List<Estado>();
 
             try
             {
-                using (SQLiteCommand comando = new SQLiteCommand("SELECT idEstado, descripcionEstado FROM estado", Conexion.Conn))
+                using (SqlCommand comando = new SqlCommand("SELECT idEstado, descripcionEstado FROM estado", Conexion.Conn))
                 {
                     Conexion.Conn.Open();
-                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    using (SqlDataReader resultado = comando.ExecuteReader())
                     {
                         while (resultado.Read())
                         {
@@ -146,10 +135,10 @@ namespace SistemasContables.Models
 
             try
             {
-                using (SQLiteCommand comando = new SQLiteCommand("SELECT idEmpleado, nombresEmpleado, apellidosEmpleado FROM empleado", Conexion.Conn))
+                using (SqlCommand comando = new SqlCommand("SELECT idEmpleado, nombresEmpleado, apellidosEmpleado FROM empleado", Conexion.Conn))
                 {
                     Conexion.Conn.Open();
-                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    using (SqlDataReader resultado = comando.ExecuteReader())
                     {
                         while (resultado.Read())
                         {
@@ -183,10 +172,10 @@ namespace SistemasContables.Models
 
             try
             {
-                using (SQLiteCommand comando = new SQLiteCommand("SELECT idRol, nombreRol FROM rol", Conexion.Conn))
+                using (SqlCommand comando = new SqlCommand("SELECT idRol, nombreRol FROM Roles", Conexion.Conn))
                 {
                     Conexion.Conn.Open();
-                    using (SQLiteDataReader resultado = comando.ExecuteReader())
+                    using (SqlDataReader resultado = comando.ExecuteReader())
                     {
                         while (resultado.Read())
                         {
@@ -212,6 +201,5 @@ namespace SistemasContables.Models
 
             return listaRoles;
         }
-
     }
 }

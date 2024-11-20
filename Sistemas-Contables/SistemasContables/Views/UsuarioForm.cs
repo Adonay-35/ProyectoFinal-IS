@@ -37,7 +37,6 @@ namespace SistemasContables.Views
             estadosController = new EstadoController(); // Inicializamos el controlador de estados
 
             llenarTablaUsuarios();
-            disableButtons();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -152,18 +151,6 @@ namespace SistemasContables.Views
             listaRoles = rolesController.getList();
             listaEmpleados = empleadosController.getList();
 
-            // Mostrar u ocultar botones según la cantidad de usuarios
-            if (listaUsuarios.Count > 0)
-            {
-                btnModificar.Visible = true;
-                btnEliminar.Visible = true;
-            }
-            else
-            {
-                btnModificar.Visible = false;
-                btnEliminar.Visible = false;
-            }
-
             // Llenar la tabla con descripciones en lugar de IDs
             foreach (Usuario usuario in listaUsuarios)
             {
@@ -175,13 +162,6 @@ namespace SistemasContables.Views
                 // Agregar la fila a la tabla
                 tableUsuario.Rows.Add(usuario.IdUsuario, usuario.NombreUsuario, usuario.ClaveUsuario, nombreCompletoEmpleado, descripcionRol, descripcionEstado);
             }
-        }
-
-        // Desactivar botones si es necesario
-        private void disableButtons()
-        {
-            btnModificar.Visible = true;
-            btnEliminar.Visible = true;
         }
 
         private void btnRestoreWindow_Click(object sender, EventArgs e)

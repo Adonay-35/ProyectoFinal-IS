@@ -1,6 +1,7 @@
 ﻿using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -19,38 +20,39 @@ namespace SistemasContables.DataBase
         {
             try
             {
-                conn = Conexion.Conn;
-                conn.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (conn = Conexion.Conn)
                 {
-                    string sql = $"SELECT * FROM {TABLE_ESTADO} ORDER BY {DESCRIPCION_ESTADO}";
-                    command.CommandText = sql;
-                    command.Connection = conn;
-
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    conn.Open();
+                    using (SqlCommand command = new SqlCommand())
                     {
-                        if (result.HasRows)
+                        string sql = $"SELECT * FROM {TABLE_ESTADO} ORDER BY {DESCRIPCION_ESTADO}";
+                        command.CommandText = sql;
+                        command.Connection = Conexion.Conn;
+
+                        using (SqlDataReader result = command.ExecuteReader())
                         {
-                            if (lista.Count > 0)
+                            if (result.HasRows)
                             {
-                                lista.Clear();
-                            }
+                                if (lista.Count > 0)
+                                {
+                                    lista.Clear();
+                                }
 
-                            while (result.Read())
-                            {
-                                Estado estado = new Estado();
+                                while (result.Read())
+                                {
+                                    Estado estado = new Estado();
 
-                                estado.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
-                                estado.DescripcionEstado = result[DESCRIPCION_ESTADO].ToString();
+                                    estado.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
+                                    estado.DescripcionEstado = result[DESCRIPCION_ESTADO].ToString();
 
-                                lista.Add(estado);
+                                    lista.Add(estado);
+                                }
                             }
                         }
                     }
+                    conn.Close();
                 }
 
-                conn.Close();
             }
             catch (Exception exception)
             {
@@ -67,7 +69,7 @@ namespace SistemasContables.DataBase
                 conn = Conexion.Conn;
                 conn.Open();
 
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (SqlCommand command = new SqlCommand())
                 {
                     string sql = $"INSERT INTO {TABLE_ESTADO}({DESCRIPCION_ESTADO}) VALUES(@descripcionEstado);";
                     command.CommandText = sql;
@@ -93,7 +95,7 @@ namespace SistemasContables.DataBase
                 conn = Conexion.Conn;
                 conn.Open();
 
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (SqlCommand command = new SqlCommand())
                 {
                     string sql = $"UPDATE {TABLE_ESTADO} SET {DESCRIPCION_ESTADO} = @descripcionEstado WHERE {ID_ESTADO} = @idEstado";
                     command.CommandText = sql;
@@ -120,7 +122,7 @@ namespace SistemasContables.DataBase
                 conn = Conexion.Conn;
                 conn.Open();
 
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (SqlCommand command = new SqlCommand())
                 {
                     string sql = $"DELETE FROM {TABLE_ESTADO} WHERE {ID_ESTADO} = @idEstado";
                     command.CommandText = sql;
@@ -146,14 +148,14 @@ namespace SistemasContables.DataBase
                 conn = Conexion.Conn;
                 conn.Open();
 
-                using (SQLiteCommand command = new SQLiteCommand())
+                using (SqlCommand command = new SqlCommand())
                 {
                     string sql = $"SELECT * FROM {TABLE_ESTADO} WHERE {ID_ESTADO} = @idEstado";
                     command.CommandText = sql;
                     command.Connection = conn;
                     command.Parameters.AddWithValue("@idEstado", idEstado);
 
-                    using (SQLiteDataReader result = command.ExecuteReader())
+                    using (SqlDataReader result = command.ExecuteReader())
                     {
                         if (result.HasRows && result.Read())
                         {
@@ -173,7 +175,5 @@ namespace SistemasContables.DataBase
 
             return estado;
         }
-
-
     }
 }

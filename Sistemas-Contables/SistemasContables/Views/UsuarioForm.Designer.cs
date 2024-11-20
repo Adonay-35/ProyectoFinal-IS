@@ -39,6 +39,12 @@
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.panelTabla = new System.Windows.Forms.Panel();
             this.tableUsuario = new Guna.UI.WinForms.GunaDataGridView();
+            this.columnIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaDragPanelTop = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaDragTitulo = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
@@ -52,12 +58,9 @@
             this.btnRestoreWindow = new FontAwesome.Sharp.IconButton();
             this.btnMaximizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.columnIdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gunaElipse5 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse6 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse7 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableUsuario)).BeginInit();
@@ -244,6 +247,42 @@
             this.tableUsuario.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableUsuario.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // columnIdUsuario
+            // 
+            this.columnIdUsuario.FillWeight = 30F;
+            this.columnIdUsuario.HeaderText = "ID";
+            this.columnIdUsuario.Name = "columnIdUsuario";
+            // 
+            // ColumnUsuario
+            // 
+            this.ColumnUsuario.FillWeight = 60F;
+            this.ColumnUsuario.HeaderText = "Usuario";
+            this.ColumnUsuario.Name = "ColumnUsuario";
+            // 
+            // ColumnClave
+            // 
+            this.ColumnClave.FillWeight = 60F;
+            this.ColumnClave.HeaderText = "Clave";
+            this.ColumnClave.Name = "ColumnClave";
+            // 
+            // ColumnEmpleado
+            // 
+            this.ColumnEmpleado.FillWeight = 220F;
+            this.ColumnEmpleado.HeaderText = "Empleado";
+            this.ColumnEmpleado.Name = "ColumnEmpleado";
+            // 
+            // ColumnRol
+            // 
+            this.ColumnRol.FillWeight = 80F;
+            this.ColumnRol.HeaderText = "Rol";
+            this.ColumnRol.Name = "ColumnRol";
+            // 
+            // ColumnEstado
+            // 
+            this.ColumnEstado.FillWeight = 80F;
+            this.ColumnEstado.HeaderText = "Estado";
+            this.ColumnEstado.Name = "ColumnEstado";
+            // 
             // gunaDragPanelTop
             // 
             this.gunaDragPanelTop.TargetControl = null;
@@ -377,41 +416,20 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // columnIdUsuario
+            // gunaElipse5
             // 
-            this.columnIdUsuario.FillWeight = 30F;
-            this.columnIdUsuario.HeaderText = "ID";
-            this.columnIdUsuario.Name = "columnIdUsuario";
+            this.gunaElipse5.Radius = 10;
+            this.gunaElipse5.TargetControl = this.btnAgregar;
             // 
-            // ColumnUsuario
+            // gunaElipse6
             // 
-            this.ColumnUsuario.FillWeight = 60F;
-            this.ColumnUsuario.HeaderText = "Usuario";
-            this.ColumnUsuario.Name = "ColumnUsuario";
+            this.gunaElipse6.Radius = 10;
+            this.gunaElipse6.TargetControl = this.btnModificar;
             // 
-            // ColumnClave
+            // gunaElipse7
             // 
-            this.ColumnClave.FillWeight = 60F;
-            this.ColumnClave.HeaderText = "Clave";
-            this.ColumnClave.Name = "ColumnClave";
-            // 
-            // ColumnEmpleado
-            // 
-            this.ColumnEmpleado.FillWeight = 220F;
-            this.ColumnEmpleado.HeaderText = "Empleado";
-            this.ColumnEmpleado.Name = "ColumnEmpleado";
-            // 
-            // ColumnRol
-            // 
-            this.ColumnRol.FillWeight = 80F;
-            this.ColumnRol.HeaderText = "Rol";
-            this.ColumnRol.Name = "ColumnRol";
-            // 
-            // ColumnEstado
-            // 
-            this.ColumnEstado.FillWeight = 80F;
-            this.ColumnEstado.HeaderText = "Estado";
-            this.ColumnEstado.Name = "ColumnEstado";
+            this.gunaElipse7.Radius = 10;
+            this.gunaElipse7.TargetControl = this.btnEliminar;
             // 
             // UsuarioForm
             // 
@@ -461,5 +479,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
+        private Guna.UI.WinForms.GunaElipse gunaElipse5;
+        private Guna.UI.WinForms.GunaElipse gunaElipse6;
+        private Guna.UI.WinForms.GunaElipse gunaElipse7;
     }
 }

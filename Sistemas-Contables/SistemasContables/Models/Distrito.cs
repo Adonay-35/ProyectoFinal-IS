@@ -8,6 +8,16 @@ namespace SistemasContables.Models
         private string nombreDistrito;
         private int idMunicipio;
 
+        public Distrito(int iddistriro, string distrito)
+        {
+            this.idDistrito = iddistriro;
+            this.nombreDistrito = distrito;
+        }
+
+        public Distrito()
+        {
+        }
+
         public int IdDistrito
         {
             get { return this.idDistrito; }

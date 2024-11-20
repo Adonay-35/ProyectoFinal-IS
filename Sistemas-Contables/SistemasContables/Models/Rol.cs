@@ -18,7 +18,6 @@ namespace SistemasContables.Models
         {
         }
 
-
         public int IdRol
         {
             get { return this.idRol; }

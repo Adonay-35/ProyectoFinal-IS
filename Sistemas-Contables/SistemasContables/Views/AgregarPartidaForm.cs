@@ -448,5 +448,6 @@ namespace SistemasContables.Views
 
             dpFecha.Value = new DateTime(year, month, day);
         }
+        
     }
 }
