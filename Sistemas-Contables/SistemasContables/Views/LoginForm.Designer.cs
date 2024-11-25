@@ -98,7 +98,7 @@
             this.gunaPanel1.Controls.Add(this.btnLogin);
             this.gunaPanel1.Controls.Add(this.txtNombreUsuario);
             this.gunaPanel1.Controls.Add(this.txtClaveUsuario);
-            this.gunaPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gunaPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.gunaPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gunaPanel1.Location = new System.Drawing.Point(225, 46);
@@ -178,6 +178,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.BaseColor = System.Drawing.Color.DimGray;
             this.btnLogin.BorderColor = System.Drawing.Color.Black;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnLogin.FocusedColor = System.Drawing.Color.Empty;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

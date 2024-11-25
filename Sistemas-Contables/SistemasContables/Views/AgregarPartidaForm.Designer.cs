@@ -389,9 +389,7 @@
             this.cbCuenta.FormattingEnabled = true;
             this.cbCuenta.ItemHeight = 28;
             this.cbCuenta.Items.AddRange(new object[] {
-            "Seleccione",
-            "Debe",
-            "Haber"});
+            "Seleccione"});
             this.cbCuenta.Location = new System.Drawing.Point(672, 210);
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));

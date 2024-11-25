@@ -174,7 +174,7 @@ namespace SistemasContables.Views
 
             if (!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
             {
-                int index = cbCuenta.SelectedIndex - 3;
+                int index = cbCuenta.SelectedIndex - 1;
 
                 if (listaCuenta[index].Nivel != 1 && listaCuenta[index].Nivel != 2)
                 {
