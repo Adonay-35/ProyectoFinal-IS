@@ -1,4 +1,5 @@
 ﻿using SistemasContables.controller;
+using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace SistemasContables.Views
     {
         private UsuarioController usuarioController;
         public static string nombreUsuario;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -24,9 +26,12 @@ namespace SistemasContables.Views
         private void btnLogin_Click(object sender, EventArgs e)
         {
             nombreUsuario = txtNombreUsuario.Text;
-            string claveUsuario = txtClaveUsuario.Text;
+            //string claveUsuario = txtClaveUsuario.Text;
 
-            if (usuarioController.Login(nombreUsuario, claveUsuario))
+            string claveHasheada = Encryptar.GetSHA256(txtClaveUsuario.Text.Trim());
+
+
+            if (usuarioController.Login(nombreUsuario, claveHasheada))
             {
                 MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

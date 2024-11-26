@@ -1,8 +1,10 @@
 ﻿using SistemasContables.controller;
+using SistemasContables.DataBase;
 using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SistemasContables.Views
@@ -10,10 +12,14 @@ namespace SistemasContables.Views
     public partial class UsuarioForm : Form
     {
         private string accion;
+
+        private UsuariosDAO userDao;
+
         private List<Usuario> listaUsuarios;
         private List<Estado> listaEstados;
         private List<Rol> listaRoles;
         private List<Empleado> listaEmpleados;
+
 
         private UsuarioController usuariosController;
         private EstadoController estadosController; // Asegúrate de tener este controlador
@@ -83,10 +89,10 @@ namespace SistemasContables.Views
                     // Asignamos los valores del usuario al formulario
                     agregarUsuarioForm.txtIdUsuario.Text = tableUsuario.CurrentRow.Cells["columnIdUsuario"].Value.ToString();
                     agregarUsuarioForm.txtUsuario.Text = tableUsuario.CurrentRow.Cells["ColumnUsuario"].Value.ToString();
-                    agregarUsuarioForm.txtClave.Text = tableUsuario.CurrentRow.Cells["ColumnClave"].Value.ToString();
-                    agregarUsuarioForm.cbEmpleado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEmpleado"].Value.ToString();// Ajusta esto si usas un índice o el ID directamente
-                    agregarUsuarioForm.cbRol.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnRol"].Value.ToString(); // Ajusta esto si usas un índice o el ID directamente
-                    agregarUsuarioForm.cbEstado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEstado"].Value.ToString(); // Ajusta esto si usas un índice o el ID directamente
+                    //agregarUsuarioForm.txtClave.Text = tableUsuario.CurrentRow.Cells["ColumnClave"].Value.ToString();
+                    agregarUsuarioForm.cbEmpleado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEmpleado"].Value.ToString();
+                    agregarUsuarioForm.cbRol.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnRol"].Value.ToString();
+                    agregarUsuarioForm.cbEstado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEstado"].Value.ToString(); 
 
                     // Mostrar el formulario de edición
                     agregarUsuarioForm.ShowDialog();
@@ -151,6 +157,8 @@ namespace SistemasContables.Views
             listaRoles = rolesController.getList();
             listaEmpleados = empleadosController.getList();
 
+            lblUsers.Text = "Numero de usuarios registrados: " + listaUsuarios.Count;
+
             // Llenar la tabla con descripciones en lugar de IDs
             foreach (Usuario usuario in listaUsuarios)
             {
@@ -199,5 +207,53 @@ namespace SistemasContables.Views
             this.Close();
         }
 
+        private void cargarDatosSearch(List<Usuario> lista)
+        {
+            if (tableUsuario.RowCount > 0)
+            {
+                tableUsuario.Rows.Clear();
+            }
+
+            // Llenar la tabla con descripciones en lugar de IDs
+            foreach (Usuario usuario in lista)
+            {
+                // Obtener la descripción del estado y del rol
+                string descripcionEstado = obtenerDescripcionEstado(usuario.IdEstado);
+                string descripcionRol = obtenerDescripcionRol(usuario.IdRol);
+                string nombreCompletoEmpleado = NombreCompleto(usuario.IdEmpleado);
+
+                // Agregar la fila a la tabla
+                tableUsuario.Rows.Add(usuario.IdUsuario, usuario.NombreUsuario, usuario.ClaveUsuario, nombreCompletoEmpleado, descripcionRol, descripcionEstado);
+            }
+        }
+
+        private void txtSearch_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            /*var listaSearch = listaUsuarios.Where(user => user.NombreUsuario.ToLower().Contains(txtSearch.Text.ToLower()));
+
+            cargarDatosSearch(listaSearch.ToList());*/
+
+            // Convierte el texto de búsqueda a minúsculas para comparación insensible a mayúsculas/minúsculas.
+            string searchText = txtSearch.Text.ToLower();
+
+            // Filtrar la lista de usuarios según los campos relevantes.
+            var listaSearch = listaUsuarios.Where(usuario =>
+            {
+                // Obtener descripciones necesarias
+                string descripcionEstado = obtenerDescripcionEstado(usuario.IdEstado).ToLower();
+                string descripcionRol = obtenerDescripcionRol(usuario.IdRol).ToLower();
+                string nombreCompletoEmpleado = NombreCompleto(usuario.IdEmpleado).ToLower();
+
+                // Comprobar si alguno de los campos contiene el texto de búsqueda.
+                return usuario.IdUsuario.ToString().Contains(searchText) ||
+                       usuario.NombreUsuario.ToLower().Contains(searchText) ||
+                       nombreCompletoEmpleado.Contains(searchText) ||
+                       descripcionRol.Contains(searchText) ||
+                       descripcionEstado.Contains(searchText);
+            });
+
+            // Cargar los datos filtrados en la tabla.
+            cargarDatosSearch(listaSearch.ToList());
+        }
     }
 }

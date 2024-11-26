@@ -101,6 +101,9 @@ namespace SistemasContables.Views
 
             listaRoles = rolesController.getList();
 
+            lblUsers.Text = "Numero de roles registrados: " + listaRoles.Count;
+
+
             foreach (Rol rol in listaRoles)
             {
                 tableRoles.Rows.Add(rol.IdRol, rol.NombreRol);
@@ -138,5 +141,29 @@ namespace SistemasContables.Views
         {
             this.Close();
         }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var listaSearch = listaRoles.Where(user => user.NombreRol.ToLower().Contains(txtSearch.Text.ToLower()));
+
+            cargarDatosSearch(listaSearch.ToList());
+        }
+    
+
+        private void cargarDatosSearch(List<Rol> lista)
+        {
+            if (tableRoles.RowCount > 0)
+            {
+                tableRoles.Rows.Clear();
+            }
+
+            // Llenar la tabla con descripciones en lugar de IDs
+            foreach (Rol rol in lista)
+            {
+                // Agregar la fila a la tabla
+                tableRoles.Rows.Add(rol.IdRol, rol.NombreRol);
+            }
+        }
+
     }
 }

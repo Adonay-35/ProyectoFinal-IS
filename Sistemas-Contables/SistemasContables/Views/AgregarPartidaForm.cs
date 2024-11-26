@@ -9,12 +9,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 using System.Windows.Forms;
 
 namespace SistemasContables.Views
 {
     public partial class AgregarPartidaForm : Form
     {
+        Cuenta metodosCuentas = new Cuenta();
+
         private const double IVA = 0.13;
 
         private CuentasController cuentaController;
@@ -30,7 +33,7 @@ namespace SistemasContables.Views
         private int WindowHeight;
         private string fecha;
         private int libroDiario;
-        private int numeroPartida;        
+        private int numeroPartida;
 
         public AgregarPartidaForm(PartidasController partidasController, int libroDiario, int numeroPartida, string accion)
         {
@@ -110,13 +113,13 @@ namespace SistemasContables.Views
 
                 if (existeAjusteIVA)
                 {
-                    partidasController.delete(numeroPartida-1, libroDiario);
-                    partida.N_Partida = numeroPartida-1;
+                    partidasController.delete(numeroPartida - 1, libroDiario);
+                    partida.N_Partida = numeroPartida - 1;
                 }
 
                 bool resultado = partidasController.insert(partida);
-                
-                if(resultado)
+
+                if (resultado)
                 {
                     MessageBox.Show("Se ingreso la partida correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -165,64 +168,67 @@ namespace SistemasContables.Views
                 }
             }
 
-                
+
         }
 
         //el metodo agrega una cuenta
         private void btnNuevaCuenta_Click(object sender, EventArgs e)
-        {
+         {
 
-            if (!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
-            {
-                int index = cbCuenta.SelectedIndex - 3;
+             if (!string.IsNullOrEmpty(txtMonto.Text) && cbTipoTransaccion.SelectedIndex != 0 && cbCuenta.SelectedIndex != 0)
+             {
+                 int index = cbCuenta.SelectedIndex - 1;
+                 //int index = cbCuenta.SelectedIndex - 2;
 
-                if (listaCuenta[index].Nivel != 1 && listaCuenta[index].Nivel != 2)
-                {
 
-                    double monto = Convert.ToDouble(txtMonto.Text);
-                    double montoTotal = MontoSinIVA(monto);
-                    double ivaMonto = CalcularIVA(montoTotal);
+                 if (listaCuenta[index].Nivel != 1 && listaCuenta[index].Nivel != 2)
+                 {
 
-                    if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
-                    {
-                        tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
+                     double monto = Convert.ToDouble(txtMonto.Text);
+                     double montoTotal = MontoSinIVA(monto);
+                     double ivaMonto = CalcularIVA(montoTotal);
 
-                        if (rbDebito.Checked)
-                        {
-                            tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
-                        }
-                        else if (rbCredito.Checked)
-                        {
-                            tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
-                        }
+                     if (cbTipoTransaccion.SelectedItem.ToString() == "Debe")
+                     {
+                         tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, montoTotal, "0");
 
-                    }
-                    else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
-                    {
-                        tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
+                         if (rbDebito.Checked)
+                         {
+                             tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", ivaMonto, "0");
+                         }
+                         else if (rbCredito.Checked)
+                         {
+                             tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", ivaMonto, "0");
+                         }
 
-                        if (rbDebito.Checked)
-                        {
-                            tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
-                        }
-                        else if (rbCredito.Checked)
-                        {
-                            tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
-                        }
-                    }
+                     }
+                     else if (cbTipoTransaccion.SelectedItem.ToString() == "Haber")
+                     {
+                         tablePartidas.Rows.Add("", listaCuenta[index].Codigo, listaCuenta[index].Nombre, "0", montoTotal);
 
-                    txtMonto.Text = null;
+                         if (rbDebito.Checked)
+                         {
+                             tablePartidas.Rows.Add("", "210702", "Debito Fiscal IVA", "0", ivaMonto);
+                         }
+                         else if (rbCredito.Checked)
+                         {
+                             tablePartidas.Rows.Add("", "110601", "Credito Fiscal IVA", "0", ivaMonto);
+                         }
+                     }
 
-                }
+                     txtMonto.Text = null;
 
-            }
+                 }
 
-            else
-            {
-                MessageBox.Show("Todos los campos son necesarios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+             }
 
-        }
+             else
+             {
+                 MessageBox.Show("Todos los campos son necesarios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+             }
+
+         }
+
 
         //el metodo elimina una cuenta
         private void btnEliminarCuenta_Click(object sender, EventArgs e)
@@ -448,6 +454,5 @@ namespace SistemasContables.Views
 
             dpFecha.Value = new DateTime(year, month, day);
         }
-        
     }
 }

@@ -6,23 +6,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemasContables
+namespace SistemasContables.controller
 {
     public class CuentasController
     {
         private CuentasDAO cuentasDAO;
+
         private List<Cuenta> lista;
+        private bool estado = false;
+
+        private List<Cuenta> listaCuenta;
 
         public CuentasController()
         {
-            this.cuentasDAO = new CuentasDAO();
+            cuentasDAO = new CuentasDAO();
         }
 
         public List<Cuenta> getList()
         {
-            this.lista = this.cuentasDAO.getList();
+            return cuentasDAO.getList();
+        }
+
+        public bool insert(Cuenta cuenta)
+        {
+            this.estado = this.cuentasDAO.insert(cuenta);
+            return this.estado;
+        }
+
+        public bool agregarListaDeCuentas(List<Cuenta> listCuentas)
+        {
+            this.estado = this.cuentasDAO.agregarListaDeCuentas(listCuentas);
+            return this.estado;
+        }
+
+        public List<Cuenta> listaNivelTipo(int nivel, string tipo)
+        {
+            this.lista = this.cuentasDAO.listaNivelTipo(nivel, tipo);
 
             return this.lista;
+        }
+
+        public List<Cuenta> listaNivel(int nivel)
+        {
+            this.lista = this.cuentasDAO.listaNivel(nivel);
+
+            return this.lista;
+        }
+
+        public bool update(Cuenta cuenta)
+        {
+            return this.cuentasDAO.update(cuenta);
+        }
+
+        public bool delete(int idCuenta)
+        {
+            return this.cuentasDAO.delete(idCuenta);
         }
 
     }

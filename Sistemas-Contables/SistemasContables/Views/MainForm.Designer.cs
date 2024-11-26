@@ -32,6 +32,8 @@
             Guna.UI.Animation.Animation animation1 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
+            this.btnCatalogo = new FontAwesome.Sharp.IconButton();
+            this.btnReporteDeVentas = new FontAwesome.Sharp.IconButton();
             this.userName = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
@@ -61,6 +63,7 @@
             this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
             this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
+            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -73,6 +76,9 @@
             // panelNavegacion
             // 
             this.panelNavegacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
+            this.panelNavegacion.Controls.Add(this.btnUsuarios);
+            this.panelNavegacion.Controls.Add(this.btnCatalogo);
+            this.panelNavegacion.Controls.Add(this.btnReporteDeVentas);
             this.panelNavegacion.Controls.Add(this.userName);
             this.panelNavegacion.Controls.Add(this.panel2);
             this.panelNavegacion.Controls.Add(this.btnBalanceGeneral);
@@ -87,8 +93,58 @@
             this.panelNavegacion.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavegacion.Location = new System.Drawing.Point(0, 0);
             this.panelNavegacion.Name = "panelNavegacion";
-            this.panelNavegacion.Size = new System.Drawing.Size(252, 760);
+            this.panelNavegacion.Size = new System.Drawing.Size(252, 788);
             this.panelNavegacion.TabIndex = 2;
+            // 
+            // btnCatalogo
+            // 
+            this.btnCatalogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnCatalogo, Guna.UI.Animation.DecorationType.None);
+            this.btnCatalogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCatalogo.FlatAppearance.BorderSize = 0;
+            this.btnCatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCatalogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCatalogo.ForeColor = System.Drawing.Color.White;
+            this.btnCatalogo.IconChar = FontAwesome.Sharp.IconChar.ListAlt;
+            this.btnCatalogo.IconColor = System.Drawing.Color.White;
+            this.btnCatalogo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCatalogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCatalogo.Location = new System.Drawing.Point(0, 559);
+            this.btnCatalogo.MinimumSize = new System.Drawing.Size(250, 60);
+            this.btnCatalogo.Name = "btnCatalogo";
+            this.btnCatalogo.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCatalogo.Size = new System.Drawing.Size(252, 60);
+            this.btnCatalogo.TabIndex = 24;
+            this.btnCatalogo.Text = "Catalogo de Cuentas";
+            this.btnCatalogo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCatalogo.UseVisualStyleBackColor = true;
+            this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
+            // 
+            // btnReporteDeVentas
+            // 
+            this.btnReporteDeVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnReporteDeVentas, Guna.UI.Animation.DecorationType.None);
+            this.btnReporteDeVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteDeVentas.FlatAppearance.BorderSize = 0;
+            this.btnReporteDeVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteDeVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteDeVentas.ForeColor = System.Drawing.Color.White;
+            this.btnReporteDeVentas.IconChar = FontAwesome.Sharp.IconChar.BalanceScale;
+            this.btnReporteDeVentas.IconColor = System.Drawing.Color.White;
+            this.btnReporteDeVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReporteDeVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteDeVentas.Location = new System.Drawing.Point(0, 499);
+            this.btnReporteDeVentas.MinimumSize = new System.Drawing.Size(250, 60);
+            this.btnReporteDeVentas.Name = "btnReporteDeVentas";
+            this.btnReporteDeVentas.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnReporteDeVentas.Size = new System.Drawing.Size(252, 60);
+            this.btnReporteDeVentas.TabIndex = 23;
+            this.btnReporteDeVentas.Text = "Reporte de Ventas";
+            this.btnReporteDeVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteDeVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReporteDeVentas.UseVisualStyleBackColor = true;
+            this.btnReporteDeVentas.Click += new System.EventHandler(this.btnReporteDeVentas_Click);
             // 
             // userName
             // 
@@ -103,7 +159,7 @@
             this.userName.IconColor = System.Drawing.Color.White;
             this.userName.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.userName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userName.Location = new System.Drawing.Point(0, 700);
+            this.userName.Location = new System.Drawing.Point(0, 728);
             this.userName.MinimumSize = new System.Drawing.Size(250, 60);
             this.userName.Name = "userName";
             this.userName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -415,7 +471,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1203, 760);
+            this.panelContenedor.Size = new System.Drawing.Size(1203, 788);
             this.panelContenedor.TabIndex = 3;
             // 
             // panelContenido
@@ -427,7 +483,7 @@
             this.panelContenido.Location = new System.Drawing.Point(252, 40);
             this.panelContenido.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(951, 674);
+            this.panelContenido.Size = new System.Drawing.Size(951, 702);
             this.panelContenido.TabIndex = 8;
             // 
             // panel3
@@ -444,7 +500,7 @@
             this.panelBottom.Controls.Add(this.panel1);
             this.AnimacionPanelNavegacion.SetDecoration(this.panelBottom, Guna.UI.Animation.DecorationType.None);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(252, 714);
+            this.panelBottom.Location = new System.Drawing.Point(252, 742);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(951, 46);
             this.panelBottom.TabIndex = 7;
@@ -591,16 +647,41 @@
             // 
             this.gunaResize.TargetForm = this;
             // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnUsuarios, Guna.UI.Animation.DecorationType.None);
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btnUsuarios.IconColor = System.Drawing.Color.White;
+            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 619);
+            this.btnUsuarios.MinimumSize = new System.Drawing.Size(250, 60);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(252, 60);
+            this.btnUsuarios.TabIndex = 25;
+            this.btnUsuarios.Text = "Gestion de Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1203, 760);
+            this.ClientSize = new System.Drawing.Size(1203, 788);
             this.Controls.Add(this.panelContenedor);
             this.AnimacionPanelNavegacion.SetDecoration(this, Guna.UI.Animation.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1203, 760);
+            this.MinimumSize = new System.Drawing.Size(1203, 718);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistemas Contables";
@@ -646,6 +727,9 @@
         private Guna.UI.WinForms.GunaTransition AnimacionPanelNavegacion;
         private Guna.UI.WinForms.GunaResize gunaResize;
         private FontAwesome.Sharp.IconButton userName;
+        private FontAwesome.Sharp.IconButton btnReporteDeVentas;
+        private FontAwesome.Sharp.IconButton btnCatalogo;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
     }
 }
 

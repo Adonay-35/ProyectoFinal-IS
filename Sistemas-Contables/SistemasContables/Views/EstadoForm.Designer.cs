@@ -56,6 +56,9 @@
             this.gunaElipse5 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse6 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse7 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new Guna.UI.WinForms.GunaTextBox();
+            this.lblUsers = new Guna.UI.WinForms.GunaLabel();
             this.panelTop.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelTabla.SuspendLayout();
@@ -287,6 +290,7 @@
             this.panelTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTabla.Controls.Add(this.lblUsers);
             this.panelTabla.Controls.Add(this.tableEstados);
             this.panelTabla.Location = new System.Drawing.Point(-2, 143);
             this.panelTabla.Name = "panelTabla";
@@ -386,11 +390,55 @@
             this.gunaElipse7.Radius = 10;
             this.gunaElipse7.TargetControl = this.btnEliminar;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 35);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Buscar";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearch.BaseColor = System.Drawing.Color.White;
+            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSearch.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            this.txtSearch.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.txtSearch.Location = new System.Drawing.Point(87, 90);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.Radius = 4;
+            this.txtSearch.Size = new System.Drawing.Size(334, 41);
+            this.txtSearch.TabIndex = 49;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // lblUsers
+            // 
+            this.lblUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUsers.AutoSize = true;
+            this.lblUsers.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lblUsers.Location = new System.Drawing.Point(2, 496);
+            this.lblUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsers.Name = "lblUsers";
+            this.lblUsers.Size = new System.Drawing.Size(183, 32);
+            this.lblUsers.TabIndex = 42;
+            this.lblUsers.Text = "Lista de estados";
+            // 
             // EstadoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 671);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelTabla);
@@ -401,6 +449,7 @@
             this.panelTop.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panelTabla.ResumeLayout(false);
+            this.panelTabla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableEstados)).EndInit();
             this.ResumeLayout(false);
 
@@ -432,5 +481,8 @@
         private Guna.UI.WinForms.GunaElipse gunaElipse5;
         private Guna.UI.WinForms.GunaElipse gunaElipse6;
         private Guna.UI.WinForms.GunaElipse gunaElipse7;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI.WinForms.GunaTextBox txtSearch;
+        private Guna.UI.WinForms.GunaLabel lblUsers;
     }
 }

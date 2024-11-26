@@ -129,6 +129,8 @@ namespace SistemasContables.Views
             listaDistritos = distritosController.getList();
             listaMunicipios = municipiosController.getList();
 
+            lblUsers.Text = "Numero de empleados registrados: " + listaEmpleados.Count;
+
             foreach (Empleado empleado in listaEmpleados)
             {
                 string departamento = obtenerNombreDepartamento(empleado.IdDepartamento);
@@ -188,5 +190,42 @@ namespace SistemasContables.Views
         {
             this.Close();
         }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Convierte el texto de búsqueda a minúsculas para comparación insensible a mayúsculas/minúsculas.
+            string searchText = txtSearch.Text.ToLower();
+
+            // Filtrar la lista de usuarios según los campos relevantes.
+            var listaSearch = listaEmpleados.Where(empleado =>
+            {
+                // Comprobar si alguno de los campos contiene el texto de búsqueda.
+                return empleado.NombresEmpleado.ToLower().Contains(searchText) ||
+                       empleado.ApellidosEmpleado.ToLower().Contains(searchText);
+                
+            });
+
+            // Cargar los datos filtrados en la tabla.
+            cargarDatosSearch(listaSearch.ToList());
+        }
+
+        private void cargarDatosSearch(List<Empleado> lista)
+        {
+            if (tableEmpleado.RowCount > 0)
+            {
+                tableEmpleado.Rows.Clear();
+            }
+
+            foreach (Empleado empleado in lista)
+            {
+                string departamento = obtenerNombreDepartamento(empleado.IdDepartamento);
+                string distrito = obtenerNombreDistrito(empleado.IdDistrito);
+                string municipio = obtenerNombreMunicipio(empleado.IdMunicipio);
+
+                tableEmpleado.Rows.Add(empleado.IdEmpleado, empleado.NombresEmpleado, empleado.ApellidosEmpleado, empleado.FechaNacimiento, empleado.DuiEmpleado, empleado.IsssEmpleado, empleado.Telefono, empleado.Correo, empleado.Linea1, empleado.Linea2, empleado.CodigoPostal, departamento, municipio, distrito);
+            }
+        }
+
     }
+
 }

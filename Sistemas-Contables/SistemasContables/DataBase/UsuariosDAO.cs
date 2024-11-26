@@ -9,11 +9,11 @@ namespace SistemasContables.DataBase
 {
     public class UsuariosDAO : DAO
     {
-        private List<Usuario> lista;
+        private List<Usuario> listaUsuarios;
 
         public UsuariosDAO()
         {
-            lista = new List<Usuario>();
+            listaUsuarios = new List<Usuario>();
         }
 
         public List<Usuario> getList()
@@ -33,9 +33,9 @@ namespace SistemasContables.DataBase
                         {
                             if (result.HasRows)
                             {
-                                if (lista.Count > 0)
+                                if (listaUsuarios.Count > 0)
                                 {
-                                    lista.Clear();
+                                    listaUsuarios.Clear();
                                 }
 
                                 while (result.Read())
@@ -49,7 +49,7 @@ namespace SistemasContables.DataBase
                                     usuario.IdRol = Convert.ToInt32(result[ID_ROL]);
                                     usuario.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
 
-                                    lista.Add(usuario);
+                                    listaUsuarios.Add(usuario);
                                 }
                             }
                         }
@@ -63,8 +63,9 @@ namespace SistemasContables.DataBase
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return lista;
+            return listaUsuarios;
         }
+
 
         public bool insert(Usuario usuario)
         {
@@ -80,8 +81,12 @@ namespace SistemasContables.DataBase
                         sql += "VALUES(@nombreUsuario, @claveUsuario, @idEmpleado, @idRol, @idEstado);";
                         command.CommandText = sql;
                         command.Connection = Conexion.Conn;
+
+                        // Encriptar la clave del usuario
+                        string claveEncriptada = Encryptar.GetSHA256(usuario.ClaveUsuario);
+
                         command.Parameters.AddWithValue("@nombreUsuario", usuario.NombreUsuario);
-                        command.Parameters.AddWithValue("@claveUsuario", usuario.ClaveUsuario);
+                        command.Parameters.AddWithValue("@claveUsuario", claveEncriptada);
                         command.Parameters.AddWithValue("@idEmpleado", usuario.IdEmpleado);
                         command.Parameters.AddWithValue("@idRol", usuario.IdRol);
                         command.Parameters.AddWithValue("@idEstado", usuario.IdEstado);
@@ -118,8 +123,12 @@ namespace SistemasContables.DataBase
                         string sql = $"UPDATE {TABLE_USUARIO} SET {NOMBRE_USUARIO} = @nombreUsuario, {CLAVE_USUARIO} = @claveUsuario, {ID_EMPLEADO} = @idEmpleado, {ID_ROL} = @idRol, {ID_ESTADO} = @idEstado WHERE {ID_USUARIO} = @idUsuario";
                         command.CommandText = sql;
                         command.Connection = Conexion.Conn;
+
+                        // Encriptar la clave del usuario
+                        string claveEncriptada = Encryptar.GetSHA256(usuario.ClaveUsuario);
+
                         command.Parameters.AddWithValue("@nombreUsuario", usuario.NombreUsuario);
-                        command.Parameters.AddWithValue("@claveUsuario", usuario.ClaveUsuario);
+                        command.Parameters.AddWithValue("@claveUsuario", claveEncriptada);
                         command.Parameters.AddWithValue("@idEmpleado", usuario.IdEmpleado);
                         command.Parameters.AddWithValue("@idRol", usuario.IdRol);
                         command.Parameters.AddWithValue("@idEstado", usuario.IdEstado);
@@ -258,6 +267,50 @@ namespace SistemasContables.DataBase
             }
 
             return usuario;
+        }
+
+        public Usuario searchUser(int idUsuario)
+        {
+            Usuario user = new Usuario();
+            try
+            {
+                conn = Conexion.Conn;
+
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    string sql = $"SELECT * FROM {TABLE_USUARIO} WHERE {ID_USUARIO} = {idUsuario}";
+                    command.CommandText = sql;
+                    command.Connection = Conexion.Conn;
+
+                    using (SqlDataReader result = command.ExecuteReader())
+                    {
+                        if (result.HasRows)
+                        {
+                            while (result.Read())
+                            {
+                                user.IdUsuario = Convert.ToInt32(result[ID_USUARIO]);
+                                user.NombreUsuario = result[NOMBRE_USUARIO].ToString();
+                                user.ClaveUsuario = result[CLAVE_USUARIO].ToString();
+                                user.IdEmpleado = Convert.ToInt32(result[ID_EMPLEADO]);
+                                user.IdRol = Convert.ToInt32(result[ID_ROL]);
+                                user.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
+                            }
+                        }
+                    }
+
+                }
+
+                conn.Close();
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return user;
         }
     }
 }

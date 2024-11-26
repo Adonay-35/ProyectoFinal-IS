@@ -38,8 +38,8 @@ namespace SistemasContables
         private int WindowWidth;
         private int WindowHeight;
 
-
-        public MainForm()
+                    //string rol       
+        public MainForm(    )
         {
             InitializeComponent();
             leftPanelBtn = new Panel();
@@ -62,6 +62,12 @@ namespace SistemasContables
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
 
             userName.Text = LoginForm.nombreUsuario;
+
+            /*if (rol != "Administrador")
+            {
+                btnCatalogo.Visible = true;
+                btnUsuarios.Visible = true;
+            }*/
         }
 
         // cierra el programa
@@ -363,6 +369,15 @@ namespace SistemasContables
                 case "balance_general":
                     openFormInPane(new BalanceGeneralForm(libroDiario));
                     break;
+                case "reporte_de_ventas":
+                    openFormInPane(new ReporteDeVentasForm(libroDiario));
+                    break;
+                case "catalogo_de_cuentas":
+                    openFormInPane(new CatalogoDeCuentasForm());
+                    break;
+                case "usuarios":
+                    openFormInPane(new UsuarioForm());
+                    break;
             }
 
         }
@@ -400,6 +415,27 @@ namespace SistemasContables
             {
                 Application.Restart();
             }
+        }
+
+        private void btnReporteDeVentas_Click(object sender, EventArgs e)
+        {
+            currentNameForm = "reporte_de_ventas";
+            activaButton(this.btnReporteDeVentas);
+            openFormInPane(new ReporteDeVentasForm(libroDiario));
+        }
+
+        private void btnCatalogo_Click(object sender, EventArgs e)
+        {
+            currentNameForm = "catalogo_de_cuentas";
+            activaButton(this.btnCatalogo);
+            openFormInPane(new CatalogoDeCuentasForm());
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            currentNameForm = "usuarios";
+            activaButton(this.btnUsuarios);
+            openFormInPane(new UsuarioForm());
         }
     }
 }

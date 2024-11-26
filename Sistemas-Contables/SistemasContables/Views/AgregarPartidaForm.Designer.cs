@@ -389,16 +389,13 @@
             this.cbCuenta.FormattingEnabled = true;
             this.cbCuenta.ItemHeight = 28;
             this.cbCuenta.Items.AddRange(new object[] {
-            "Seleccione",
-            "Debe",
-            "Haber"});
+            "Seleccione una cuenta"});
             this.cbCuenta.Location = new System.Drawing.Point(672, 210);
             this.cbCuenta.Name = "cbCuenta";
             this.cbCuenta.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
             this.cbCuenta.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbCuenta.Radius = 5;
             this.cbCuenta.Size = new System.Drawing.Size(278, 34);
-            this.cbCuenta.StartIndex = 0;
             this.cbCuenta.TabIndex = 129;
             // 
             // gunaGroupBox1
@@ -755,7 +752,7 @@
             // 
             // ColumnCodigo
             // 
-            this.ColumnCodigo.FillWeight = 60F;
+            this.ColumnCodigo.FillWeight = 70F;
             this.ColumnCodigo.HeaderText = "Codigo";
             this.ColumnCodigo.Name = "ColumnCodigo";
             this.ColumnCodigo.ReadOnly = true;
@@ -806,7 +803,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1006, 773);
+            this.MinimumSize = new System.Drawing.Size(1006, 718);
             this.Name = "AgregarPartidaForm";
             this.Text = "AgregarPartidaForm";
             this.panelTop.ResumeLayout(false);

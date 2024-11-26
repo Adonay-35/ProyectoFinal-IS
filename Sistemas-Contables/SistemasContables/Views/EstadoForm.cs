@@ -152,6 +152,9 @@ namespace SistemasContables.Views
             // Obtener la lista de usuarios, estados y roles
             listaEstados = estadosController.getList();
 
+            lblUsers.Text = "Numero de estados registrados: " + listaEstados.Count;
+
+
             // Llenar la tabla con descripciones en lugar de IDs
             foreach (Estado estado in listaEstados)
             {
@@ -160,6 +163,26 @@ namespace SistemasContables.Views
             }
         }
 
+        private void cargarDatosSearch(List<Estado> lista)
+        {
+            if (tableEstados.RowCount > 0)
+            {
+                tableEstados.Rows.Clear();
+            }
 
+            // Llenar la tabla con descripciones en lugar de IDs
+            foreach (Estado estado in lista)
+            {
+                // Agregar la fila a la tabla
+                tableEstados.Rows.Add(estado.IdEstado, estado.DescripcionEstado);
+            }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var listaSearch = listaEstados.Where(user => user.DescripcionEstado.ToLower().Contains(txtSearch.Text.ToLower()));
+
+            cargarDatosSearch(listaSearch.ToList());
+        }
     }
 }
