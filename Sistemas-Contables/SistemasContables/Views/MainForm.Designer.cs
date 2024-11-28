@@ -33,7 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelNavegacion = new System.Windows.Forms.Panel();
             this.btnCatalogo = new FontAwesome.Sharp.IconButton();
-            this.btnReporteDeVentas = new FontAwesome.Sharp.IconButton();
             this.userName = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBalanceGeneral = new FontAwesome.Sharp.IconButton();
@@ -63,6 +62,7 @@
             this.gunaDragTituloIcon = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.AnimacionPanelNavegacion = new Guna.UI.WinForms.GunaTransition(this.components);
             this.gunaResize = new Guna.UI.WinForms.GunaResize(this.components);
+            this.btnReporteDeVentas = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.panelNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -120,31 +120,6 @@
             this.btnCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCatalogo.UseVisualStyleBackColor = true;
             this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
-            // 
-            // btnReporteDeVentas
-            // 
-            this.btnReporteDeVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionPanelNavegacion.SetDecoration(this.btnReporteDeVentas, Guna.UI.Animation.DecorationType.None);
-            this.btnReporteDeVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteDeVentas.FlatAppearance.BorderSize = 0;
-            this.btnReporteDeVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteDeVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteDeVentas.ForeColor = System.Drawing.Color.White;
-            this.btnReporteDeVentas.IconChar = FontAwesome.Sharp.IconChar.BalanceScale;
-            this.btnReporteDeVentas.IconColor = System.Drawing.Color.White;
-            this.btnReporteDeVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReporteDeVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteDeVentas.Location = new System.Drawing.Point(0, 499);
-            this.btnReporteDeVentas.MinimumSize = new System.Drawing.Size(250, 60);
-            this.btnReporteDeVentas.Name = "btnReporteDeVentas";
-            this.btnReporteDeVentas.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnReporteDeVentas.Size = new System.Drawing.Size(252, 60);
-            this.btnReporteDeVentas.TabIndex = 23;
-            this.btnReporteDeVentas.Text = "Reporte de Ventas";
-            this.btnReporteDeVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteDeVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReporteDeVentas.UseVisualStyleBackColor = true;
-            this.btnReporteDeVentas.Click += new System.EventHandler(this.btnReporteDeVentas_Click);
             // 
             // userName
             // 
@@ -647,6 +622,31 @@
             // 
             this.gunaResize.TargetForm = this;
             // 
+            // btnReporteDeVentas
+            // 
+            this.btnReporteDeVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionPanelNavegacion.SetDecoration(this.btnReporteDeVentas, Guna.UI.Animation.DecorationType.None);
+            this.btnReporteDeVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporteDeVentas.FlatAppearance.BorderSize = 0;
+            this.btnReporteDeVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporteDeVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteDeVentas.ForeColor = System.Drawing.Color.White;
+            this.btnReporteDeVentas.IconChar = FontAwesome.Sharp.IconChar.BalanceScale;
+            this.btnReporteDeVentas.IconColor = System.Drawing.Color.White;
+            this.btnReporteDeVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReporteDeVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteDeVentas.Location = new System.Drawing.Point(0, 499);
+            this.btnReporteDeVentas.MinimumSize = new System.Drawing.Size(250, 60);
+            this.btnReporteDeVentas.Name = "btnReporteDeVentas";
+            this.btnReporteDeVentas.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnReporteDeVentas.Size = new System.Drawing.Size(252, 60);
+            this.btnReporteDeVentas.TabIndex = 23;
+            this.btnReporteDeVentas.Text = "Reporte de Ventas";
+            this.btnReporteDeVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporteDeVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReporteDeVentas.UseVisualStyleBackColor = true;
+            this.btnReporteDeVentas.Click += new System.EventHandler(this.btnReporteDeVentas_Click);
+            // 
             // btnUsuarios
             // 
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -727,9 +727,9 @@
         private Guna.UI.WinForms.GunaTransition AnimacionPanelNavegacion;
         private Guna.UI.WinForms.GunaResize gunaResize;
         private FontAwesome.Sharp.IconButton userName;
-        private FontAwesome.Sharp.IconButton btnReporteDeVentas;
         private FontAwesome.Sharp.IconButton btnCatalogo;
         private FontAwesome.Sharp.IconButton btnUsuarios;
+        private FontAwesome.Sharp.IconButton btnReporteDeVentas;
     }
 }
 

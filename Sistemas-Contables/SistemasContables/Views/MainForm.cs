@@ -38,8 +38,7 @@ namespace SistemasContables
         private int WindowWidth;
         private int WindowHeight;
 
-                    //string rol       
-        public MainForm(    )
+        public MainForm(string idRol)
         {
             InitializeComponent();
             leftPanelBtn = new Panel();
@@ -61,14 +60,16 @@ namespace SistemasContables
             activaButton(this.btnInicio);
             openFormInPane(new InicioForm(libroDiarioController, listaLibroDiario, listaYears));
 
-            userName.Text = LoginForm.nombreUsuario;
+            //userName.Text = LoginForm.nombreUsuario;
 
-            /*if (rol != "Administrador")
+            if (idRol != "Administrador" && idRol != "Gerente")
             {
                 btnCatalogo.Visible = true;
                 btnUsuarios.Visible = true;
-            }*/
+            }
+
         }
+    
 
         // cierra el programa
         private void btnExit_Click(object sender, EventArgs e)

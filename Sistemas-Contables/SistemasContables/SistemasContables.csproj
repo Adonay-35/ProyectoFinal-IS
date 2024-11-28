@@ -217,7 +217,6 @@
     <Compile Include="controller\EmpleadoController.cs" />
     <Compile Include="controller\EstadoController.cs" />
     <Compile Include="controller\EstadoDeResultadosController.cs" />
-    <Compile Include="controller\LibroDeVentasAContribuyentesController.cs" />
     <Compile Include="controller\LibroDiariosController.cs" />
     <Compile Include="controller\LibroMayorController.cs" />
     <Compile Include="controller\MunicipioController.cs" />
@@ -237,7 +236,6 @@
     <Compile Include="DataBase\EmpleadosDAO.cs" />
     <Compile Include="DataBase\EstadoDeResultadosDAO.cs" />
     <Compile Include="DataBase\EstadosDAO.cs" />
-    <Compile Include="DataBase\LibroDeVentasAContribuyentesDAO.cs" />
     <Compile Include="DataBase\LibroDiarioDAO.cs" />
     <Compile Include="DataBase\LibroMayorDAO.cs" />
     <Compile Include="DataBase\MunicipiosDAO.cs" />
@@ -348,12 +346,6 @@
     <Compile Include="Views\LibroMayorForm.Designer.cs">
       <DependentUpon>LibroMayorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\LibroVentasAContibuyentesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\LibroVentasAContibuyentesForm.Designer.cs">
-      <DependentUpon>LibroVentasAContibuyentesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,9 +422,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LibroMayorForm.resx">
       <DependentUpon>LibroMayorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\LibroVentasAContibuyentesForm.resx">
-      <DependentUpon>LibroVentasAContibuyentesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

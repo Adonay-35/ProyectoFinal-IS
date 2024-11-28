@@ -66,25 +66,19 @@ namespace SistemasContables.DataBase
         //protected const string ID_ESTADO = "idEstado";
         protected const string DESCRIPCION_ESTADO = "descripcionEstado";
 
-        protected const string TABLE_DEPARTAMENTO = "Departamentos";
+        protected const string TABLE_DEPARTAMENTO = "departamento";
         //protected const string ID_DEPARTAMENTO = "idDepartamento";
         protected const string NOMBRE_DEPARTAMENTO = "nombreDepartamento";
 
-        protected const string TABLE_MUNICIPIO = "Municipios";
-        //protected const string ID_MUNICIPIO = "idMunicipio";
+        protected const string TABLE_MUNICIPIO = "municipio";
+       /// protected const string ID_MUNICIPIO = "idMunicipio";
         protected const string NOMBRE_MUNICIPIO = "nombreMunicipio";
         //protected const string ID_DEPARTAMENTO = "idDepartamento";
 
-        protected const string TABLE_DISTRITO = "Distritos";
+        protected const string TABLE_DISTRITO = "distrito";
         //protected const string ID_DISTRITO = "idDistrito";
         protected const string NOMBRE_DISTRITO = "nombreDistrito";
-        //protected const string ID_MUNICIPIO = "idMunicipio";
+        //protected const string ID_MUNICIPIO = "idMunicipio";;
 
-        /*protected const string TABLE_DIRECCION = "direccion";
-        //protected const string ID_DIRECCION = "idDireccion";
-        protected const string LINEA1 = "linea1";
-        protected const string LINEA2 = "linea2";
-        protected const string CODIGO_POSTAL = "codigoPostal";
-        //protected const string ID_DISTRITO = "idDistrito";*/
     }
 }

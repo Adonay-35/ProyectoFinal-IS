@@ -115,6 +115,7 @@ namespace SistemasContables.Views
                 if (resultado)
                 {
                     MessageBox.Show("Empleado agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     Close();
                 }
                 else
@@ -165,6 +166,7 @@ namespace SistemasContables.Views
                 if (resultado)
                 {
                     MessageBox.Show("Empleado actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     Close();
                 }
                 else

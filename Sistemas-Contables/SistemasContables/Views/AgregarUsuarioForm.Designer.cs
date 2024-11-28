@@ -54,6 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnAgregarEmpleado = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,7 +172,6 @@
             this.cbEmpleado.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEmpleado.Radius = 5;
             this.cbEmpleado.Size = new System.Drawing.Size(393, 34);
-            this.cbEmpleado.StartIndex = 0;
             this.cbEmpleado.TabIndex = 133;
             // 
             // label4
@@ -296,7 +296,6 @@
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEstado.Radius = 5;
             this.cbEstado.Size = new System.Drawing.Size(393, 34);
-            this.cbEstado.StartIndex = 0;
             this.cbEstado.TabIndex = 139;
             // 
             // label5
@@ -330,7 +329,6 @@
             this.cbRol.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbRol.Radius = 5;
             this.cbRol.Size = new System.Drawing.Size(393, 34);
-            this.cbRol.StartIndex = 0;
             this.cbRol.TabIndex = 141;
             // 
             // label6
@@ -392,11 +390,25 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnAgregarEmpleado
+            // 
+            this.btnAgregarEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarEmpleado.Location = new System.Drawing.Point(580, 352);
+            this.btnAgregarEmpleado.Name = "btnAgregarEmpleado";
+            this.btnAgregarEmpleado.Size = new System.Drawing.Size(118, 34);
+            this.btnAgregarEmpleado.TabIndex = 145;
+            this.btnAgregarEmpleado.Text = "Agregar ...";
+            this.btnAgregarEmpleado.UseVisualStyleBackColor = true;
+            this.btnAgregarEmpleado.Click += new System.EventHandler(this.btnAgregarEmpleado_Click);
+            // 
             // AgregarUsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 703);
+            this.Controls.Add(this.btnAgregarEmpleado);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbRol);
@@ -449,5 +461,6 @@
         public Guna.UI.WinForms.GunaComboBox cbEmpleado;
         public Guna.UI.WinForms.GunaComboBox cbRol;
         public Guna.UI.WinForms.GunaComboBox cbEstado;
+        private System.Windows.Forms.Button btnAgregarEmpleado;
     }
 }

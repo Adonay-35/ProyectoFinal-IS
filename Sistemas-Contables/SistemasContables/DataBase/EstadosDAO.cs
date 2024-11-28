@@ -1,4 +1,5 @@
-﻿using SistemasContables.Models;
+﻿using iTextSharp.text.pdf.codec.wmf;
+using SistemasContables.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -175,5 +176,44 @@ namespace SistemasContables.DataBase
 
             return estado;
         }
+
+        public Estado ObtenerDescripcionEstado(string descripcionEstado)
+        {
+            Estado estado = null;
+
+            try
+            {
+                using (SqlConnection conn = Conexion.Conn)
+                {
+                    conn.Open();
+
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        string sql = $"SELECT {DESCRIPCION_ESTADO}, {ID_ESTADO} FROM {TABLE_ESTADO} WHERE {DESCRIPCION_ESTADO} = @descripcionEstado";
+                        command.CommandText = sql;
+                        command.Connection = conn;
+                        command.Parameters.AddWithValue("@descripcionEstado", descripcionEstado);
+
+                        using (SqlDataReader result = command.ExecuteReader())
+                        {
+                            if (result.HasRows && result.Read())
+                            {
+                                estado = new Estado();
+                                estado.IdEstado = Convert.ToInt32(result[ID_ESTADO]);
+                                estado.DescripcionEstado = result[DESCRIPCION_ESTADO].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return estado;
+        }
+
+
     }
 }

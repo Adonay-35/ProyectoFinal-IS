@@ -32,7 +32,8 @@
             this.txtClaveUsuario = new Guna.UI.WinForms.GunaTextBox();
             this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrar = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,10 +42,9 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnMinimizar = new FontAwesome.Sharp.IconButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gunaPanel1.SuspendLayout();
-            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtClaveUsuario
@@ -90,7 +90,7 @@
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(64)))));
             this.gunaPanel1.Controls.Add(this.pictureBox1);
-            this.gunaPanel1.Controls.Add(this.label7);
+            this.gunaPanel1.Controls.Add(this.btnRegistrar);
             this.gunaPanel1.Controls.Add(this.label6);
             this.gunaPanel1.Controls.Add(this.label4);
             this.gunaPanel1.Controls.Add(this.label3);
@@ -106,16 +106,27 @@
             this.gunaPanel1.Size = new System.Drawing.Size(368, 461);
             this.gunaPanel1.TabIndex = 7;
             // 
-            // label7
+            // pictureBox1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label7.Location = new System.Drawing.Point(144, 408);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 20);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Registrate";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(51, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(269, 76);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.AutoSize = true;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnRegistrar.Location = new System.Drawing.Point(144, 408);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(83, 20);
+            this.btnRegistrar.TabIndex = 15;
+            this.btnRegistrar.Text = "Registrate";
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label6
             // 
@@ -237,16 +248,6 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(51, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 76);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,8 +263,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
-            this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -280,7 +281,7 @@
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label btnRegistrar;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

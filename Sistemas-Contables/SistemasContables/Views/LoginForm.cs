@@ -17,11 +17,18 @@ namespace SistemasContables.Views
         private UsuarioController usuarioController;
         public static string nombreUsuario;
 
+        private string accion;
+        int idUsuario;
+
+        int idEmpleado;
+
+
         public LoginForm()
         {
             InitializeComponent();
             usuarioController = new UsuarioController();
         }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -30,14 +37,15 @@ namespace SistemasContables.Views
 
             string claveHasheada = Encryptar.GetSHA256(txtClaveUsuario.Text.Trim());
 
-
             if (usuarioController.Login(nombreUsuario, claveHasheada))
             {
                 MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                string idRol = "Administrador";
+
                 // Cerrar el formulario de login y abrir el formulario de inicio
                 this.Hide(); // Oculta el LoginForm
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new MainForm(idRol);
                 mainForm.ShowDialog();
                 this.Close(); // Cierra LoginForm después de que se cierre InicioForm
             }
@@ -55,6 +63,16 @@ namespace SistemasContables.Views
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            accion = "Agregar";
+
+            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuarioController, accion, idUsuario, idEmpleado))
+            {
+                agregarUsuarioForm.ShowDialog();
+            }
         }
     }
 }

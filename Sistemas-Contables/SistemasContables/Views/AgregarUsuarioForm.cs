@@ -32,13 +32,14 @@ namespace SistemasContables.Views
 
         private int Usuario;
 
+        int idEmpleado;
 
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
 
-        public AgregarUsuarioForm(UsuarioController usuarioController, string accion, int usuario)
+        public AgregarUsuarioForm(UsuarioController usuarioController, string accion, int usuario, int idEmpleado)
         {
             InitializeComponent();
 
@@ -48,6 +49,9 @@ namespace SistemasContables.Views
 
             this.Usuario = usuario;
 
+            this.idEmpleado = idEmpleado;
+
+            this.empleadosController = new EmpleadoController();
         }
 
         // verifica si la accion del formulario es Agregar o Editar
@@ -207,6 +211,28 @@ namespace SistemasContables.Views
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+            accion = "Agregar";
+
+
+            using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado))
+            {
+                // Registrar un evento FormClosed para actualizar el ComboBox al cerrar
+                agregarEmpleadoForm.FormClosed += (s, args) =>
+                {
+                    // Actualizar el ComboBox de empleados
+                    cbEmpleado.Items.Clear(); // Limpiar el ComboBox actual
+                    this.MostrarEmpleados(cbEmpleado); // Volver a cargar los datos
+
+                    // Volver a seleccionar el primer ítem (o un valor predeterminado)
+                    cbEmpleado.SelectedIndex = 0;
+                };
+
+                agregarEmpleadoForm.ShowDialog(); // Mostrar el formulario
+            }
         }
     }
 }

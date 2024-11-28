@@ -42,5 +42,12 @@ namespace SistemasContables.controller
             // Obtiene el usuario con el ID proporcionado y lo retorna
             return estadosDAO.ObtenerEstadoPorId(idEstado);
         }
+
+
+        public Estado ObtenerDescripcionEstado(string descripcionEstado)
+        {
+            // Obtiene el usuario con el ID proporcionado y lo retorna
+            return estadosDAO.ObtenerDescripcionEstado(descripcionEstado);
+        }
     }
 }

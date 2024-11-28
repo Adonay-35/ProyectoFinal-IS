@@ -25,7 +25,6 @@ namespace SistemasContables.controller
             // Verifica si el usuario existe y si la clave coincide
             if (usuario != null && usuario.ClaveUsuario == claveUsuario)
             {
-                // Aquí podrías hacer más lógica, como establecer la sesión de usuario
                 return true; // Usuario autenticado correctamente
             }
 
@@ -57,5 +56,6 @@ namespace SistemasContables.controller
             // Obtiene el usuario con el ID proporcionado y lo retorna
             return usuariosDAO.ObtenerUsuarioPorId(idUsuario);
         }
+
     }
 }

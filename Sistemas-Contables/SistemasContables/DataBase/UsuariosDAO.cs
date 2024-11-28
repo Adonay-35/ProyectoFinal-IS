@@ -95,7 +95,7 @@ namespace SistemasContables.DataBase
                 }
 
                 conn.Close();
-            
+
 
                 return true;
 

@@ -28,6 +28,9 @@ namespace SistemasContables.Views
 
         int idUsuario;
 
+        int idEmpleado;
+
+
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
@@ -49,7 +52,7 @@ namespace SistemasContables.Views
         {
             accion = "Agregar";
 
-            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario))
+            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado))
             {
                 agregarUsuarioForm.ShowDialog();
                 llenarTablaUsuarios();
@@ -77,7 +80,7 @@ namespace SistemasContables.Views
                 string accion = "Editar";
 
                 // Usamos el ID del usuario seleccionado para obtener los datos correspondientes
-                using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario))
+                using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado))
                 {
                     // Cargar los datos del usuario seleccionado en el formulario
                     Usuario usuarioSeleccionado = usuariosController.ObtenerUsuarioPorId(idUsuario);
@@ -89,7 +92,7 @@ namespace SistemasContables.Views
                     // Asignamos los valores del usuario al formulario
                     agregarUsuarioForm.txtIdUsuario.Text = tableUsuario.CurrentRow.Cells["columnIdUsuario"].Value.ToString();
                     agregarUsuarioForm.txtUsuario.Text = tableUsuario.CurrentRow.Cells["ColumnUsuario"].Value.ToString();
-                    //agregarUsuarioForm.txtClave.Text = tableUsuario.CurrentRow.Cells["ColumnClave"].Value.ToString();
+                    agregarUsuarioForm.txtClave.Text = tableUsuario.CurrentRow.Cells["ColumnClave"].Value.ToString();
                     agregarUsuarioForm.cbEmpleado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEmpleado"].Value.ToString();
                     agregarUsuarioForm.cbRol.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnRol"].Value.ToString();
                     agregarUsuarioForm.cbEstado.SelectedItem = tableUsuario.CurrentRow.Cells["ColumnEstado"].Value.ToString(); 
