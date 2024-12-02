@@ -213,6 +213,7 @@
     <Compile Include="controller\CuentaPartidaController.cs" />
     <Compile Include="controller\CuentasController.cs" />
     <Compile Include="controller\DepartamentoController.cs" />
+    <Compile Include="controller\DireccionesController.cs" />
     <Compile Include="controller\DistritoController.cs" />
     <Compile Include="controller\EmpleadoController.cs" />
     <Compile Include="controller\EstadoController.cs" />
@@ -256,6 +257,12 @@
     <Compile Include="Models\Partida.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Views\AgregarDireccionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AgregarDireccionForm.Designer.cs">
+      <DependentUpon>AgregarDireccionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AgregarEmpleadoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +316,12 @@
     </Compile>
     <Compile Include="Views\CatalogoDeCuentasForm.Designer.cs">
       <DependentUpon>CatalogoDeCuentasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DireccionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DireccionForm.Designer.cs">
+      <DependentUpon>DireccionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EmpleadoForm.cs">
       <SubType>Form</SubType>
@@ -378,6 +391,9 @@
     <Compile Include="Views\UsuarioForm.Designer.cs">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AgregarDireccionForm.resx">
+      <DependentUpon>AgregarDireccionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AgregarEmpleadoForm.resx">
       <DependentUpon>AgregarEmpleadoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CatalogoDeCuentasForm.resx">
       <DependentUpon>CatalogoDeCuentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DireccionForm.resx">
+      <DependentUpon>DireccionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmpleadoForm.resx">
       <DependentUpon>EmpleadoForm.cs</DependentUpon>

@@ -17,8 +17,8 @@ namespace SistemasContables
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new UsuarioForm());
-            Application.Run(new LoginForm());
+            Application.Run(new EmpleadoForm());
+            //Application.Run(new LoginForm());
         }
     }
 }

@@ -38,7 +38,7 @@ namespace SistemasContables
         private int WindowWidth;
         private int WindowHeight;
 
-        public MainForm(string idRol)
+        public MainForm()//string idRol
         {
             InitializeComponent();
             leftPanelBtn = new Panel();
@@ -62,11 +62,11 @@ namespace SistemasContables
 
             //userName.Text = LoginForm.nombreUsuario;
 
-            if (idRol != "Administrador" && idRol != "Gerente")
+            /*if (idRol != "Administrador" && idRol != "Gerente")
             {
                 btnCatalogo.Visible = true;
                 btnUsuarios.Visible = true;
-            }
+            }*/
 
         }
     

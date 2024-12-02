@@ -28,18 +28,22 @@ namespace SistemasContables.Views
         private EstadoController estadosController; // Asegúrate de tener este controlador
         private RolController rolesController; // Asegúrate de tener este controlador
         private EmpleadoController empleadosController; // Asegúrate de tener este controlador
+        private DireccionesController direccionesController; // Asegúrate de tener este controlador
 
 
         private int Usuario;
 
         int idEmpleado;
 
+        int idDireccion;
+
+
         private int PosicionFormX;
         private int PosicionFormY;
         private int WindowWidth;
         private int WindowHeight;
 
-        public AgregarUsuarioForm(UsuarioController usuarioController, string accion, int usuario, int idEmpleado)
+        public AgregarUsuarioForm(UsuarioController usuarioController, string accion, int usuario, int idEmpleado, int idDireccion)
         {
             InitializeComponent();
 
@@ -50,6 +54,8 @@ namespace SistemasContables.Views
             this.Usuario = usuario;
 
             this.idEmpleado = idEmpleado;
+
+            this.idDireccion = idDireccion;
 
             this.empleadosController = new EmpleadoController();
         }
@@ -218,7 +224,7 @@ namespace SistemasContables.Views
             accion = "Agregar";
 
 
-            using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado))
+            using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado, idDireccion))
             {
                 // Registrar un evento FormClosed para actualizar el ComboBox al cerrar
                 agregarEmpleadoForm.FormClosed += (s, args) =>

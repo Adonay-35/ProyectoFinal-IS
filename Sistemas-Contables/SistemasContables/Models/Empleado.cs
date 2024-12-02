@@ -18,17 +18,10 @@ namespace SistemasContables.Models
         private string isssEmpleado;
         private string telefono;
         private string correo;
-        private string linea1;
-        private string linea2;
-        private string codigoPostal;
-        private int idDepartamento;
-        private int idMunicipio;
-        private int idDistrito;
+        private int idDireccion;
 
         private List<Empleado> listaEmpleados;
-        private List<Departamento> listaDepartamentos;
         private List<Distrito> listaDistritos;
-        private List<Municipio> listaMunicipios;
 
         public Empleado(int idEmpleado, string nombres, string apellidos)
         {
@@ -89,49 +82,19 @@ namespace SistemasContables.Models
             set { this.correo = value; }
         }
 
-        public string Linea1
+        public int IdDireccion
         {
-            get { return this.linea1; }
-            set { this.linea1 = value; }
+            get { return this.idDireccion; }
+            set { this.idDireccion = value; }
         }
 
-        public string Linea2
+        public List<Direccion> ObtenerDirecciones()
         {
-            get { return this.linea2; }
-            set { this.linea2 = value; }
-        }
-
-        public string CodigoPostal
-        {
-            get { return this.codigoPostal; }
-            set { this.codigoPostal = value; }
-        }
-
-        public int IdDepartamento
-        {
-            get { return this.idDepartamento; }
-            set { this.idDepartamento = value; }
-        }
-
-        public int IdMunicipio
-        {
-            get { return this.idMunicipio; }
-            set { this.idMunicipio = value; }
-        }
-
-        public int IdDistrito
-        {
-            get { return this.idDistrito; }
-            set { this.idDistrito = value; }
-        }
-
-        public List<Municipio> ObtenerMunicipios()
-        {
-            List<Municipio> listaMunicipios = new List<Municipio>();
+            List<Direccion> listaDirecciones = new List<Direccion>();
 
             try
             {
-                using (SqlCommand comando = new SqlCommand("SELECT idMunicipio, nombreMunicipio FROM Municipios", Conexion.Conn))
+                using (SqlCommand comando = new SqlCommand("SELECT idDireccion, linea1, linea2, codigoPostal, idDistrito FROM Direcciones", Conexion.Conn))
                 {
                     Conexion.Conn.Open();
 
@@ -139,9 +102,11 @@ namespace SistemasContables.Models
                     {
                         while (resultado.Read())
                         {
-                            listaMunicipios.Add(new Municipio(
-                                resultado.GetInt32(0), // idMunicipio
-                                resultado.GetString(1)  // nombreMunicipio
+                            listaDirecciones.Add(new Direccion(
+                                resultado.GetInt32(0),
+                                resultado.GetString(1),
+                                resultado.GetString(1)  
+
                             ));
                         }
                     }
@@ -159,8 +124,9 @@ namespace SistemasContables.Models
                 }
             }
 
-            return listaMunicipios;
+            return listaDirecciones;
         }
+
 
         public List<Distrito> ObtenerDistritos()
         {
@@ -197,44 +163,6 @@ namespace SistemasContables.Models
             }
 
             return listaDistritos;
-        }
-
-
-        public List<Departamento> ObtenerDepartamentos()
-        {
-            List<Departamento> listaDepartamentos = new List<Departamento>();
-
-            try
-            {
-                using (SqlCommand comando = new SqlCommand("SELECT idDepartamento, nombreDepartamento FROM Departamentos", Conexion.Conn))
-                {
-                    Conexion.Conn.Open();
-
-                    using (SqlDataReader resultado = comando.ExecuteReader())
-                    {
-                        while (resultado.Read())
-                        {
-                            listaDepartamentos.Add(new Departamento(
-                                resultado.GetInt32(0), // idDepartamento
-                                resultado.GetString(1) // nombreDepartamento
-                            ));
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (Conexion.Conn.State == ConnectionState.Open)
-                {
-                    Conexion.Conn.Close();
-                }
-            }
-
-            return listaDepartamentos;
         }
     }
 }

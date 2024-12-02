@@ -22,14 +22,17 @@ namespace SistemasContables.Views
 
 
         private UsuarioController usuariosController;
-        private EstadoController estadosController; // Asegúrate de tener este controlador
-        private RolController rolesController; // Asegúrate de tener este controlador
-        private EmpleadoController empleadosController; // Asegúrate de tener este controlador
+        private EstadoController estadosController;
+        private RolController rolesController;
+        private EmpleadoController empleadosController; 
+        private DireccionesController direccionesController; 
+
 
         int idUsuario;
 
         int idEmpleado;
 
+        int idDireccion;
 
         private int PosicionFormX;
         private int PosicionFormY;
@@ -52,7 +55,7 @@ namespace SistemasContables.Views
         {
             accion = "Agregar";
 
-            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado))
+            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado, idDireccion))
             {
                 agregarUsuarioForm.ShowDialog();
                 llenarTablaUsuarios();
@@ -80,7 +83,7 @@ namespace SistemasContables.Views
                 string accion = "Editar";
 
                 // Usamos el ID del usuario seleccionado para obtener los datos correspondientes
-                using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado))
+                using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuariosController, accion, idUsuario, idEmpleado, idDireccion))
                 {
                     // Cargar los datos del usuario seleccionado en el formulario
                     Usuario usuarioSeleccionado = usuariosController.ObtenerUsuarioPorId(idUsuario);

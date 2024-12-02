@@ -50,13 +50,8 @@ namespace SistemasContables.DataBase
                                     empleado.IsssEmpleado = result[ISSS_EMPLEADO].ToString();
                                     empleado.Telefono = result[TELEFONO].ToString();
                                     empleado.Correo = result[CORREO].ToString();
-                                    empleado.Linea1 = result[LINEA1].ToString();
-                                    empleado.Linea2 = result[LINEA2].ToString();
-                                    empleado.CodigoPostal = result[CODIGO_POSTAL].ToString();
-                                    empleado.IdDepartamento = Convert.ToInt32(result[ID_DEPARTAMENTO]);
-                                    empleado.IdDistrito = Convert.ToInt32(result[ID_DISTRITO]);
-                                    empleado.IdMunicipio = Convert.ToInt32(result[ID_MUNICIPIO]);
-
+                                    empleado.IdDireccion = Convert.ToInt32(result[ID_DIRECCION]);
+                                 
                                     lista.Add(empleado);
                                 }
                             }
@@ -83,8 +78,8 @@ namespace SistemasContables.DataBase
 
                 using (SqlCommand command = new SqlCommand())
                 {
-                    string sql = $"INSERT INTO {TABLE_EMPLEADO} ({NOMBRES_EMPLEADO}, {APELLIDOS_EMPLEADO}, {FECHA_NACIMIENTO}, {DUI_EMPLEADO}, {ISSS_EMPLEADO}, {TELEFONO}, {CORREO}, {LINEA1}, {LINEA2}, {CODIGO_POSTAL}, {ID_DEPARTAMENTO}, {ID_DISTRITO}, {ID_MUNICIPIO}) ";
-                    sql += "VALUES (@nombresEmpleado, @apellidosEmpleado, @fechaNacimiento, @duiEmpleado, @isssEmpleado, @telefono, @correo, @linea1, @linea2, @codigoPostal, @idDepartamento, @idDistrito, @idMunicipio);";
+                    string sql = $"INSERT INTO {TABLE_EMPLEADO} ({NOMBRES_EMPLEADO}, {APELLIDOS_EMPLEADO}, {FECHA_NACIMIENTO}, {DUI_EMPLEADO}, {ISSS_EMPLEADO}, {TELEFONO}, {CORREO}, {ID_DIRECCION}) ";
+                    sql += "VALUES (@nombresEmpleado, @apellidosEmpleado, @fechaNacimiento, @duiEmpleado, @isssEmpleado, @telefono, @correo, @idDireccion)";
 
                     command.CommandText = sql;
                     command.Connection = conn;
@@ -96,13 +91,7 @@ namespace SistemasContables.DataBase
                     command.Parameters.AddWithValue("@isssEmpleado", empleado.IsssEmpleado);
                     command.Parameters.AddWithValue("@telefono", empleado.Telefono);
                     command.Parameters.AddWithValue("@correo", empleado.Correo);
-                    command.Parameters.AddWithValue("@linea1", empleado.Linea1);
-                    command.Parameters.AddWithValue("@linea2", empleado.Linea2);
-                    command.Parameters.AddWithValue("@codigoPostal", empleado.CodigoPostal);
-                    command.Parameters.AddWithValue("@idDepartamento", empleado.IdDepartamento);
-                    command.Parameters.AddWithValue("@idDistrito", empleado.IdDistrito);
-                    command.Parameters.AddWithValue("@idMunicipio", empleado.IdMunicipio);
-
+                    command.Parameters.AddWithValue("@idDireccion", empleado.IdDireccion);
 
                     command.ExecuteNonQuery();
                 }
@@ -126,7 +115,7 @@ namespace SistemasContables.DataBase
 
                 using (SqlCommand command = new SqlCommand())
                 {
-                    string sql = $"UPDATE {TABLE_EMPLEADO} SET {NOMBRES_EMPLEADO} = @nombresEmpleado, {APELLIDOS_EMPLEADO} = @apellidosEmpleado, {FECHA_NACIMIENTO} = @fechaNacimiento, {DUI_EMPLEADO} = @duiEmpleado, {ISSS_EMPLEADO} = @isssEmpleado, {TELEFONO} = @telefono, {CORREO} = @correo, {LINEA1} = @linea1, {LINEA2} = @linea2, {CODIGO_POSTAL} = @codigoPostal, {ID_DEPARTAMENTO} = @idDepartamento, {ID_DISTRITO} = @idDistrito, {ID_MUNICIPIO} = @idMunicipio WHERE {ID_EMPLEADO} = @idEmpleado";
+                    string sql = $"UPDATE {TABLE_EMPLEADO} SET {NOMBRES_EMPLEADO} = @nombresEmpleado, {APELLIDOS_EMPLEADO} = @apellidosEmpleado, {FECHA_NACIMIENTO} = @fechaNacimiento, {DUI_EMPLEADO} = @duiEmpleado, {ISSS_EMPLEADO} = @isssEmpleado, {TELEFONO} = @telefono, {CORREO} = @correo,{ID_DIRECCION} = @idDireccion";
 
                     command.CommandText = sql;
                     command.Connection = conn;
@@ -138,13 +127,7 @@ namespace SistemasContables.DataBase
                     command.Parameters.AddWithValue("@isssEmpleado", empleado.IsssEmpleado);
                     command.Parameters.AddWithValue("@telefono", empleado.Telefono);
                     command.Parameters.AddWithValue("@correo", empleado.Correo);
-                    command.Parameters.AddWithValue("@linea1", empleado.Linea1);
-                    command.Parameters.AddWithValue("@linea2", empleado.Linea2);
-                    command.Parameters.AddWithValue("@codigoPostal", empleado.CodigoPostal);
-                    command.Parameters.AddWithValue("@idDepartamento", empleado.IdDepartamento);
-                    command.Parameters.AddWithValue("@idDistrito", empleado.IdDistrito);
-                    command.Parameters.AddWithValue("@idMunicipio", empleado.IdMunicipio);
-                    command.Parameters.AddWithValue("@idEmpleado", empleado.IdEmpleado);
+                    command.Parameters.AddWithValue("@idDireccion", empleado.IdDireccion);
 
                     command.ExecuteNonQuery();
                 }
@@ -218,12 +201,8 @@ namespace SistemasContables.DataBase
                             empleado.IsssEmpleado = result[ISSS_EMPLEADO].ToString();
                             empleado.Telefono = result[TELEFONO].ToString();
                             empleado.Correo = result[CORREO].ToString();
-                            empleado.Linea1 = result[LINEA1].ToString();
-                            empleado.Linea2 = result[LINEA2].ToString();
-                            empleado.CodigoPostal = result[CODIGO_POSTAL].ToString();
-                            empleado.IdDepartamento = Convert.ToInt32(result[ID_DEPARTAMENTO]);
-                            empleado.IdDistrito = Convert.ToInt32(result[ID_DISTRITO]);
-                            empleado.IdMunicipio = Convert.ToInt32(result[ID_MUNICIPIO]);
+                            empleado.IdDireccion = Convert.ToInt32(result[ID_DIRECCION]);
+
                         }
                     }
                 }

@@ -50,7 +50,13 @@
             this.btnModificar = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.panelTabla = new System.Windows.Forms.Panel();
+            this.lblUsers = new Guna.UI.WinForms.GunaLabel();
             this.tableEmpleado = new Guna.UI.WinForms.GunaDataGridView();
+            this.gunaElipse5 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse6 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaElipse7 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearch = new Guna.UI.WinForms.GunaTextBox();
             this.columnIdEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,18 +65,7 @@
             this.ColumnIsss = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLinea1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLinea2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnIdDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnIdMunicipio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnIdDistrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gunaElipse5 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse6 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse7 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearch = new Guna.UI.WinForms.GunaTextBox();
-            this.lblUsers = new Guna.UI.WinForms.GunaLabel();
+            this.ColumnIdDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTop.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelTabla.SuspendLayout();
@@ -309,6 +304,18 @@
             this.panelTabla.Size = new System.Drawing.Size(1051, 601);
             this.panelTabla.TabIndex = 17;
             // 
+            // lblUsers
+            // 
+            this.lblUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUsers.AutoSize = true;
+            this.lblUsers.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.lblUsers.Location = new System.Drawing.Point(2, 496);
+            this.lblUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsers.Name = "lblUsers";
+            this.lblUsers.Size = new System.Drawing.Size(219, 32);
+            this.lblUsers.TabIndex = 41;
+            this.lblUsers.Text = "Lista de empleados";
+            // 
             // tableEmpleado
             // 
             this.tableEmpleado.AllowUserToAddRows = false;
@@ -338,12 +345,7 @@
             this.ColumnIsss,
             this.ColumnTelefono,
             this.ColumnCorreo,
-            this.ColumnLinea1,
-            this.ColumnLinea2,
-            this.ColumnCodigoPostal,
-            this.ColumnIdDepartamento,
-            this.ColumnIdMunicipio,
-            this.ColumnIdDistrito});
+            this.ColumnIdDireccion});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -386,6 +388,51 @@
             this.tableEmpleado.ThemeStyle.RowsStyle.Height = 40;
             this.tableEmpleado.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tableEmpleado.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // gunaElipse5
+            // 
+            this.gunaElipse5.Radius = 10;
+            this.gunaElipse5.TargetControl = this.btnAgregar;
+            // 
+            // gunaElipse6
+            // 
+            this.gunaElipse6.Radius = 10;
+            this.gunaElipse6.TargetControl = this.btnModificar;
+            // 
+            // gunaElipse7
+            // 
+            this.gunaElipse7.Radius = 10;
+            this.gunaElipse7.TargetControl = this.btnEliminar;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(-3, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 35);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "Buscar";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearch.BaseColor = System.Drawing.Color.White;
+            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSearch.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
+            this.txtSearch.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.txtSearch.Location = new System.Drawing.Point(84, 94);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.Radius = 4;
+            this.txtSearch.Size = new System.Drawing.Size(334, 41);
+            this.txtSearch.TabIndex = 47;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // columnIdEmpleado
             // 
@@ -435,98 +482,11 @@
             this.ColumnCorreo.HeaderText = "Correo";
             this.ColumnCorreo.Name = "ColumnCorreo";
             // 
-            // ColumnLinea1
+            // ColumnIdDireccion
             // 
-            this.ColumnLinea1.FillWeight = 79.72287F;
-            this.ColumnLinea1.HeaderText = "Linea1";
-            this.ColumnLinea1.Name = "ColumnLinea1";
-            // 
-            // ColumnLinea2
-            // 
-            this.ColumnLinea2.FillWeight = 79.72287F;
-            this.ColumnLinea2.HeaderText = "Linea2";
-            this.ColumnLinea2.Name = "ColumnLinea2";
-            // 
-            // ColumnCodigoPostal
-            // 
-            this.ColumnCodigoPostal.FillWeight = 79.72287F;
-            this.ColumnCodigoPostal.HeaderText = "CodigoPostal";
-            this.ColumnCodigoPostal.Name = "ColumnCodigoPostal";
-            // 
-            // ColumnIdDepartamento
-            // 
-            this.ColumnIdDepartamento.FillWeight = 79.72287F;
-            this.ColumnIdDepartamento.HeaderText = "Departamento";
-            this.ColumnIdDepartamento.Name = "ColumnIdDepartamento";
-            // 
-            // ColumnIdMunicipio
-            // 
-            this.ColumnIdMunicipio.FillWeight = 79.72287F;
-            this.ColumnIdMunicipio.HeaderText = "Municipio";
-            this.ColumnIdMunicipio.Name = "ColumnIdMunicipio";
-            // 
-            // ColumnIdDistrito
-            // 
-            this.ColumnIdDistrito.FillWeight = 79.72287F;
-            this.ColumnIdDistrito.HeaderText = "Distrito";
-            this.ColumnIdDistrito.Name = "ColumnIdDistrito";
-            // 
-            // gunaElipse5
-            // 
-            this.gunaElipse5.Radius = 10;
-            this.gunaElipse5.TargetControl = this.btnAgregar;
-            // 
-            // gunaElipse6
-            // 
-            this.gunaElipse6.Radius = 10;
-            this.gunaElipse6.TargetControl = this.btnModificar;
-            // 
-            // gunaElipse7
-            // 
-            this.gunaElipse7.Radius = 10;
-            this.gunaElipse7.TargetControl = this.btnEliminar;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-3, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 35);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Buscar";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
-            this.txtSearch.BaseColor = System.Drawing.Color.White;
-            this.txtSearch.BorderColor = System.Drawing.Color.Silver;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtSearch.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.txtSearch.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.txtSearch.Location = new System.Drawing.Point(84, 94);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.Radius = 4;
-            this.txtSearch.Size = new System.Drawing.Size(334, 41);
-            this.txtSearch.TabIndex = 47;
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
-            // 
-            // lblUsers
-            // 
-            this.lblUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUsers.AutoSize = true;
-            this.lblUsers.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lblUsers.Location = new System.Drawing.Point(2, 496);
-            this.lblUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(219, 32);
-            this.lblUsers.TabIndex = 41;
-            this.lblUsers.Text = "Lista de empleados";
+            this.ColumnIdDireccion.FillWeight = 79.72287F;
+            this.ColumnIdDireccion.HeaderText = "Direccion";
+            this.ColumnIdDireccion.Name = "ColumnIdDireccion";
             // 
             // EmpleadoForm
             // 
@@ -572,6 +532,12 @@
         private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.Panel panelTabla;
         private Guna.UI.WinForms.GunaDataGridView tableEmpleado;
+        private Guna.UI.WinForms.GunaElipse gunaElipse5;
+        private Guna.UI.WinForms.GunaElipse gunaElipse6;
+        private Guna.UI.WinForms.GunaElipse gunaElipse7;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI.WinForms.GunaTextBox txtSearch;
+        private Guna.UI.WinForms.GunaLabel lblUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnIdEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellidos;
@@ -580,17 +546,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIsss;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLinea1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLinea2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigoPostal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdDepartamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdMunicipio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdDistrito;
-        private Guna.UI.WinForms.GunaElipse gunaElipse5;
-        private Guna.UI.WinForms.GunaElipse gunaElipse6;
-        private Guna.UI.WinForms.GunaElipse gunaElipse7;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI.WinForms.GunaTextBox txtSearch;
-        private Guna.UI.WinForms.GunaLabel lblUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdDireccion;
     }
 }

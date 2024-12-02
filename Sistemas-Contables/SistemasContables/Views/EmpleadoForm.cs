@@ -16,16 +16,18 @@ namespace SistemasContables.Views
     {
         private string accion;
         private List<Empleado> listaEmpleados;
-        private List<Departamento> listaDepartamentos;
+        private List<Direccion> listaDirecciones;
         private List<Distrito> listaDistritos;
-        private List<Municipio> listaMunicipios;
+
 
         private EmpleadoController empleadosController;
-        private DepartamentoController departamentosController;
+        private DireccionesController direccionesController;
         private DistritoController distritosController;
-        private MunicipioController municipiosController;
+
 
         int idEmpleado;
+
+        int idDireccion;
 
         private int PosicionFormX;
         private int PosicionFormY;
@@ -36,9 +38,8 @@ namespace SistemasContables.Views
         {
             InitializeComponent();
             empleadosController = new EmpleadoController();
-            departamentosController = new DepartamentoController();
+            direccionesController = new DireccionesController();
             distritosController = new DistritoController();
-            municipiosController = new MunicipioController();
 
             llenarTablaEmpleados();
         }
@@ -47,7 +48,7 @@ namespace SistemasContables.Views
         {
             accion = "Agregar";
 
-            using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado))
+            using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado, idDireccion))
             {
                 agregarEmpleadoForm.ShowDialog();
                 llenarTablaEmpleados();
@@ -70,14 +71,12 @@ namespace SistemasContables.Views
             {
                 string accion = "Editar";
 
-                using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado))
+                using (AgregarEmpleadoForm agregarEmpleadoForm = new AgregarEmpleadoForm(this.empleadosController, accion, idEmpleado , idDireccion))
                 {
                     Empleado empleadoSeleccionado = empleadosController.ObtenerEmpleadoPorId(idEmpleado);
 
-                    agregarEmpleadoForm.MostrarDepartamentos(agregarEmpleadoForm.cbDepartamento);
-                    agregarEmpleadoForm.MostrarDistritos(agregarEmpleadoForm.cbDistrito);
-                    agregarEmpleadoForm.MostrarMunicipios(agregarEmpleadoForm.cbMunicipio);
-
+                    agregarEmpleadoForm.MostrarDirecciones(agregarEmpleadoForm.cbDireccion);
+              
                     agregarEmpleadoForm.txtIdEmpleado.Text = tableEmpleado.CurrentRow.Cells["columnIdEmpleado"].Value.ToString();
                     agregarEmpleadoForm.txtNombres.Text = tableEmpleado.CurrentRow.Cells["ColumnNombres"].Value.ToString();
                     agregarEmpleadoForm.txtApellidos.Text = tableEmpleado.CurrentRow.Cells["ColumnApellidos"].Value.ToString();
@@ -86,12 +85,7 @@ namespace SistemasContables.Views
                     agregarEmpleadoForm.txtISSS.Text = tableEmpleado.CurrentRow.Cells["ColumnIsss"].Value.ToString();
                     agregarEmpleadoForm.txtTelefono.Text = tableEmpleado.CurrentRow.Cells["ColumnTelefono"].Value.ToString();
                     agregarEmpleadoForm.txtCorreo.Text = tableEmpleado.CurrentRow.Cells["ColumnCorreo"].Value.ToString();
-                    agregarEmpleadoForm.txtLinea1.Text = tableEmpleado.CurrentRow.Cells["ColumnLinea1"].Value.ToString();
-                    agregarEmpleadoForm.txtLinea2.Text = tableEmpleado.CurrentRow.Cells["ColumnLinea2"].Value.ToString();
-                    agregarEmpleadoForm.txtCodigoPostal.Text = tableEmpleado.CurrentRow.Cells["ColumnCodigoPostal"].Value.ToString();
-                    agregarEmpleadoForm.cbDepartamento.SelectedItem = tableEmpleado.CurrentRow.Cells["ColumnIdDepartamento"].Value.ToString();
-                    agregarEmpleadoForm.cbDistrito.SelectedItem = tableEmpleado.CurrentRow.Cells["ColumnIdDistrito"].Value.ToString();
-                    agregarEmpleadoForm.cbMunicipio.SelectedItem = tableEmpleado.CurrentRow.Cells["ColumnIdMunicipio"].Value.ToString();
+                    agregarEmpleadoForm.cbDireccion.SelectedItem = tableEmpleado.CurrentRow.Cells["ColumnIdDireccion"].Value.ToString();
 
                     agregarEmpleadoForm.ShowDialog();
                 }
@@ -125,38 +119,33 @@ namespace SistemasContables.Views
             }
 
             listaEmpleados = empleadosController.getList();
-            listaDepartamentos = departamentosController.getList();
+
+            listaDirecciones = direccionesController.getList();
+
             listaDistritos = distritosController.getList();
-            listaMunicipios = municipiosController.getList();
+
 
             lblUsers.Text = "Numero de empleados registrados: " + listaEmpleados.Count;
 
             foreach (Empleado empleado in listaEmpleados)
             {
-                string departamento = obtenerNombreDepartamento(empleado.IdDepartamento);
-                string distrito = obtenerNombreDistrito(empleado.IdDistrito);
-                string municipio = obtenerNombreMunicipio(empleado.IdMunicipio);
 
-                tableEmpleado.Rows.Add(empleado.IdEmpleado, empleado.NombresEmpleado, empleado.ApellidosEmpleado, empleado.FechaNacimiento, empleado.DuiEmpleado, empleado.IsssEmpleado, empleado.Telefono, empleado.Correo, empleado.Linea1, empleado.Linea2, empleado.CodigoPostal, departamento, municipio, distrito);
+                // Obtener la dirección del empleado
+                Direccion direccion = listaDirecciones.Find(d => d.IdDireccion == empleado.IdDireccion);
+
+                // Obtener el distrito de la dirección
+                string distrito = direccion != null ? obtenerNombreDistrito(direccion.IdDistrito) : "Desconocido";
+
+
+                tableEmpleado.Rows.Add(empleado.IdEmpleado, empleado.NombresEmpleado, empleado.ApellidosEmpleado, empleado.FechaNacimiento, empleado.DuiEmpleado, empleado.IsssEmpleado, empleado.Telefono, empleado.Correo, distrito);
             }
         }
 
-        private string obtenerNombreDepartamento(int idDepartamento)
-        {
-            Departamento departamento = listaDepartamentos.Find(d => d.IdDepartamento == idDepartamento);
-            return departamento != null ? departamento.NombreDepartamento : "Desconocido";
-        }
 
         private string obtenerNombreDistrito(int idDistrito)
         {
             Distrito distrito = listaDistritos.Find(d => d.IdDistrito == idDistrito);
             return distrito != null ? distrito.NombreDistrito : "Desconocido";
-        }
-
-        private string obtenerNombreMunicipio(int idMunicipio)
-        {
-            Municipio municipio = listaMunicipios.Find(m => m.IdMunicipio == idMunicipio);
-            return municipio != null ? municipio.NombreMunicipio : "Desconocido";
         }
 
         private void btnRestoreWindow_Click(object sender, EventArgs e)
@@ -218,11 +207,13 @@ namespace SistemasContables.Views
 
             foreach (Empleado empleado in lista)
             {
-                string departamento = obtenerNombreDepartamento(empleado.IdDepartamento);
-                string distrito = obtenerNombreDistrito(empleado.IdDistrito);
-                string municipio = obtenerNombreMunicipio(empleado.IdMunicipio);
+                // Obtener la dirección del empleado
+                Direccion direccion = listaDirecciones.Find(d => d.IdDireccion == empleado.IdDireccion);
 
-                tableEmpleado.Rows.Add(empleado.IdEmpleado, empleado.NombresEmpleado, empleado.ApellidosEmpleado, empleado.FechaNacimiento, empleado.DuiEmpleado, empleado.IsssEmpleado, empleado.Telefono, empleado.Correo, empleado.Linea1, empleado.Linea2, empleado.CodigoPostal, departamento, municipio, distrito);
+                // Obtener el distrito de la dirección
+                string distrito = direccion != null ? obtenerNombreDistrito(direccion.IdDistrito) : "Desconocido";
+
+                tableEmpleado.Rows.Add(empleado.IdEmpleado, empleado.NombresEmpleado, empleado.ApellidosEmpleado, empleado.FechaNacimiento, empleado.DuiEmpleado, empleado.IsssEmpleado, empleado.Telefono, empleado.Correo, distrito);
             }
         }
 

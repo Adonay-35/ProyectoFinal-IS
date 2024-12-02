@@ -18,22 +18,23 @@ namespace SistemasContables.Views
 
         private string accion;
 
-        private List<Departamento> listaDepartamentos;
-        private List<Municipio> listaMunicipios;
         private List<Distrito> listaDistritos;
+        private List<Direccion> listaDirecciones;
+
 
         private EmpleadoController empleadosController;
-        private DepartamentoController departamentoController;
-        private MunicipioController municipioController;
         private DistritoController distritoController;
+        private DireccionesController direccionesController;
+
 
         private int IdEmpleado;
 
+        int idDireccion;
+
+
         private Empleado empleado;
 
-
-
-        public AgregarEmpleadoForm(EmpleadoController empleadosController, string accion, int idEmpleado)
+        public AgregarEmpleadoForm(EmpleadoController empleadosController, string accion, int idEmpleado, int idDireccion)
         {
             InitializeComponent();
 
@@ -41,7 +42,11 @@ namespace SistemasContables.Views
 
             this.empleadosController = empleadosController;
 
+            this.direccionesController = new DireccionesController();
+
             this.IdEmpleado = idEmpleado;
+
+            this.idDireccion = idDireccion;
         }
 
         // Verifica si la acción del formulario es Agregar o Editar
@@ -66,8 +71,7 @@ namespace SistemasContables.Views
         {
             // Primero, verificamos si los campos obligatorios están llenos
             if (string.IsNullOrWhiteSpace(txtNombres.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) || cbDepartamento.SelectedIndex == -1 ||
-                cbMunicipio.SelectedIndex == -1 || cbDistrito.SelectedIndex == -1)
+                string.IsNullOrWhiteSpace(txtTelefono.Text) || cbDireccion.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, complete todos los campos antes de continuar.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -84,12 +88,7 @@ namespace SistemasContables.Views
                 string issEmpleado = txtISSS.Text;
                 string telefono = txtTelefono.Text;
                 string correo = txtCorreo.Text;
-                string linea1 = txtLinea1.Text;
-                string linea2 = txtLinea2.Text;
-                string codigoPostal = txtCodigoPostal.Text;
-                int idDepartamento = Convert.ToInt32(cbDepartamento.SelectedIndex);
-                int idDistrito = Convert.ToInt32(cbDistrito.SelectedIndex);
-                int idMunicipio = Convert.ToInt32(cbMunicipio.SelectedIndex);
+                int IdDireccion = Convert.ToInt32(cbDireccion.SelectedIndex);
 
                 // Crear el objeto Empleado con los datos proporcionados
                 Empleado empleado = new Empleado
@@ -101,12 +100,7 @@ namespace SistemasContables.Views
                     IsssEmpleado = issEmpleado,
                     Telefono = telefono,
                     Correo = correo,
-                    Linea1 = linea1,
-                    Linea2 = linea2,
-                    CodigoPostal = codigoPostal,
-                    IdDepartamento = idDepartamento,
-                    IdDistrito = idDistrito,
-                    IdMunicipio = idMunicipio
+                    IdDireccion = IdDireccion
                 };
 
                 // Llamamos al controlador para agregar el nuevo empleado
@@ -134,12 +128,7 @@ namespace SistemasContables.Views
                 string issEmpleado = txtISSS.Text;
                 string telefono = txtTelefono.Text;
                 string correo = txtCorreo.Text;
-                string linea1 = txtLinea1.Text;
-                string linea2 = txtLinea2.Text;
-                string codigoPostal = txtCodigoPostal.Text;
-                int idDepartamento = Convert.ToInt32(cbDepartamento.SelectedIndex);
-                int idDistrito = Convert.ToInt32(cbDistrito.SelectedIndex);
-                int idMunicipio = Convert.ToInt32(cbMunicipio.SelectedIndex);
+                int IdDireccion = Convert.ToInt32(cbDireccion.SelectedIndex);
 
                 // Crear el objeto Empleado con los datos proporcionados
                 Empleado empleado = new Empleado
@@ -152,12 +141,7 @@ namespace SistemasContables.Views
                     IsssEmpleado = issEmpleado,
                     Telefono = telefono,
                     Correo = correo,
-                    Linea1 = linea1,
-                    Linea2 = linea2,
-                    CodigoPostal = codigoPostal,
-                    IdDepartamento = idDepartamento,
-                    IdDistrito = idDistrito,
-                    IdMunicipio = idMunicipio
+                    IdDireccion = IdDireccion
                 };
 
                 // Llamamos al controlador para editar el empleado
@@ -176,33 +160,13 @@ namespace SistemasContables.Views
             }
         }
 
-        public void MostrarDepartamentos(ComboBox cbDepartamentos)
+        public void MostrarDirecciones(ComboBox cbEmpleados)
         {
-            List<Departamento> datos = metodosEmpleados.ObtenerDepartamentos();
-            cbDepartamento.Items.Add("Selecciona una opción");
-            foreach (Departamento dato in datos)
+            List<Direccion> datos = metodosEmpleados.ObtenerDirecciones();
+            cbDireccion.Items.Add("Selecciona una opción");
+            foreach (Direccion dato in datos)
             {
-                cbDepartamentos.Items.Add(dato.NombreDepartamento);
-            }
-        }
-
-        public void MostrarMunicipios(ComboBox cbMunicipios)
-        {
-            List<Municipio> datos = metodosEmpleados.ObtenerMunicipios();
-            cbMunicipio.Items.Add("Selecciona una opción");
-            foreach (Municipio dato in datos)
-            {
-                cbMunicipios.Items.Add(dato.NombreMunicipio);
-            }
-        }
-
-        public void MostrarDistritos(ComboBox cbDistritos)
-        {
-            List<Distrito> datos = metodosEmpleados.ObtenerDistritos();
-            cbDistrito.Items.Add("Selecciona una opción");
-            foreach (Distrito dato in datos)
-            {
-                cbDistritos.Items.Add(dato.NombreDistrito);
+                cbEmpleados.Items.Add(dato.Linea1);
             }
         }
 
@@ -210,12 +174,8 @@ namespace SistemasContables.Views
         {
             if (string.IsNullOrEmpty(txtIdEmpleado.Text))
             {
-                this.MostrarDepartamentos(cbDepartamento);
-                this.MostrarDistritos(cbDistrito);
-                this.MostrarMunicipios(cbMunicipio);
-                cbDepartamento.SelectedIndex = 0;
-                cbDistrito.SelectedIndex = 0;
-                cbMunicipio.SelectedIndex = 0;
+                this.MostrarDirecciones(cbDireccion);
+                cbDireccion.SelectedIndex = 0;
             }
         }
 
@@ -242,6 +202,33 @@ namespace SistemasContables.Views
             // Opcional: Asignar la fecha formateada a un TextBox si lo necesitas
             dtpFechaNac.Text = fechaFormateada;
 
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAgregarDireccion_Click(object sender, EventArgs e)
+        {
+            accion = "Agregar";
+
+
+            using (AgregarDireccionForm agregarDireccionForm = new AgregarDireccionForm(this.direccionesController, accion, idDireccion))
+            {
+                // Registrar un evento FormClosed para actualizar el ComboBox al cerrar
+                agregarDireccionForm.FormClosed += (s, args) =>
+                {
+                    // Actualizar el ComboBox de empleados
+                    cbDireccion.Items.Clear(); // Limpiar el ComboBox actual
+                    this.MostrarDirecciones(cbDireccion); // Volver a cargar los datos
+
+                    // Volver a seleccionar el primer ítem (o un valor predeterminado)
+                    cbDireccion.SelectedIndex = 0;
+                };
+
+                agregarDireccionForm.ShowDialog(); // Mostrar el formulario
+            }
         }
     }
 }

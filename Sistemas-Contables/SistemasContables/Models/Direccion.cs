@@ -1,4 +1,9 @@
-﻿using System;
+﻿using SistemasContables.DataBase;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace SistemasContables.Models
 {
@@ -9,6 +14,18 @@ namespace SistemasContables.Models
         private string linea2;
         private string codigoPostal;
         private int idDistrito;
+
+        public Direccion(int idDireccion, string linea1, string linea2) { 
+        
+            this.idDireccion = idDireccion;
+            this.linea1 = linea1;
+            this.linea2 = linea2;
+
+        }
+
+    public Direccion()
+        {
+        }
 
         public int IdDireccion
         {
@@ -39,5 +56,45 @@ namespace SistemasContables.Models
             get { return this.idDistrito; }
             set { this.idDistrito = value; }
         }
+
+       
+
+        public List<Distrito> ObtenerDistritos()
+        {
+            List<Distrito> listaDistritos = new List<Distrito>();
+
+            try
+            {
+                using (SqlCommand comando = new SqlCommand("SELECT idDistrito, nombreDistrito FROM Distritos", Conexion.Conn))
+                {
+                    Conexion.Conn.Open();
+
+                    using (SqlDataReader resultado = comando.ExecuteReader())
+                    {
+                        while (resultado.Read())
+                        {
+                            listaDistritos.Add(new Distrito(
+                                resultado.GetInt32(0), // idDistrito
+                                resultado.GetString(1)  // nombreDistrito
+                            ));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (Conexion.Conn.State == ConnectionState.Open)
+                {
+                    Conexion.Conn.Close();
+                }
+            }
+
+            return listaDistritos;
+        }
+
     }
 }

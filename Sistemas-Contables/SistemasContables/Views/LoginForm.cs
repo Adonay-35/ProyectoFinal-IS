@@ -22,6 +22,7 @@ namespace SistemasContables.Views
 
         int idEmpleado;
 
+        int idDireccion;
 
         public LoginForm()
         {
@@ -41,11 +42,9 @@ namespace SistemasContables.Views
             {
                 MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                string idRol = "Administrador";
-
                 // Cerrar el formulario de login y abrir el formulario de inicio
                 this.Hide(); // Oculta el LoginForm
-                MainForm mainForm = new MainForm(idRol);
+                MainForm mainForm = new MainForm();
                 mainForm.ShowDialog();
                 this.Close(); // Cierra LoginForm después de que se cierre InicioForm
             }
@@ -69,7 +68,7 @@ namespace SistemasContables.Views
         {
             accion = "Agregar";
 
-            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuarioController, accion, idUsuario, idEmpleado))
+            using (AgregarUsuarioForm agregarUsuarioForm = new AgregarUsuarioForm(this.usuarioController, accion, idUsuario, idEmpleado, idDireccion))
             {
                 agregarUsuarioForm.ShowDialog();
             }
